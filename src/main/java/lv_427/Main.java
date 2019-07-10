@@ -5,8 +5,15 @@ import lv_427.Logic.nazar_stasyuk.Fibonacci;
 
 import java.util.Scanner;
 
+/**
+ * @author lv-427
+ * @version 1.0
+ * */
 public class Main {
 
+    /**
+     * Description: our first task with team work
+     * */
     private static final String MENU = "1\tFibonacci\n" +
             "2\tModification Fibonacci\n" +
             "3\tIntresting row\n" +
