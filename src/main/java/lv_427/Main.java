@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class Main {
 
+<<<<<<< HEAD
     private static final String MENU = "1\tFibonacci\n" +
             "2\tModification Fibonacci\n" +
             "3\tIntresting row\n" +
@@ -88,5 +89,7 @@ public class Main {
     }
 
 
+=======
+>>>>>>> a4d020b8313880987ac49bf93765836327881aab
 }
 
