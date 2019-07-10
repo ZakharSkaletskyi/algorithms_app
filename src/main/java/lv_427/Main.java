@@ -1,13 +1,12 @@
 package lv_427;
 
 import lv_427.Logic.AlgorithmExecutor;
-import lv_427.Logic.Fibonacci;
+import lv_427.Logic.nazar_stasyuk.Fibonacci;
 
 import java.util.Scanner;
 
 public class Main {
 
-<<<<<<< HEAD
     private static final String MENU = "1\tFibonacci\n" +
             "2\tModification Fibonacci\n" +
             "3\tIntresting row\n" +
@@ -88,8 +87,5 @@ public class Main {
         }
     }
 
-
-=======
->>>>>>> a4d020b8313880987ac49bf93765836327881aab
 }
 
