@@ -88,7 +88,6 @@ public class Main {
                     break;
                 default:
                     continue;
-
             }
             algorithmExecutor.execute();
         }
