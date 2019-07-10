@@ -31,6 +31,7 @@ public class Main {
           + "17\tQuick Sort\n"
           + "18\tBucket Sort\n"
           + "19\tMerge Sort\n"
+          + "q\texit\n"
           + "Input your choose: ";
 
   /**
@@ -43,13 +44,28 @@ public class Main {
 
     Scanner scanner = new Scanner(System.in);
 
-    int selector = -1;
+    int select;
+    String input;
 
-    while (selector != 0) {
+    while (true) {
       System.out.println(MENU);
-      selector = scanner.nextInt();
+
+      input = scanner.nextLine();
+
+      if (input.equalsIgnoreCase("q")){
+        System.out.println("Bye!");
+        break;
+      }
+
+      try{
+        select = Integer.valueOf(input);
+      }catch (Exception c){
+        System.out.println("You have to input integer or \'q\' to exit!!!");
+        continue;
+      }
+
       System.out.println();
-      switch (selector) {
+      switch (select) {
         case 1:
           algorithmExecutor = new Fibonacci();
           break;
@@ -90,6 +106,7 @@ public class Main {
         case 19:
           break;
         default:
+          System.out.println("Input integer between 1 and 19 or \'q\' to exit!");
           continue;
       }
       algorithmExecutor.execute();

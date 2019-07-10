@@ -28,7 +28,7 @@ public class Fibonacci implements AlgorithmExecutor {
     while (true) {
       System.out.println(
           "Input \'q\' to exit or input position of number in Fibonacci array(integer): ");
-      String input = sc.next();
+      String input = sc.nextLine();
 
       if (input.equalsIgnoreCase("q")) {
         break;
