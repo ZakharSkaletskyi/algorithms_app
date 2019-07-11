@@ -13,7 +13,7 @@ public class ModificationFibonacci implements AlgorithmExecutor {
     generateFibonacciSequence();
     System.out.println(sequenceFibonacciRow.get(6 - 1));
     System.out.print(sequenceFibonacciRow);
-    System.out.println(" ");ffff
+    System.out.println(" ");fffff
     System.out.println(sequenceFibonacciRow.size());
   }
 
