@@ -2,11 +2,13 @@ package lv_427;
 
 import java.util.Scanner;
 import lv_427.logic.AlgorithmExecutor;
+import lv_427.logic.kateryna_horokh.PalindromicSubsequence;
 import lv_427.logic.nazar_stasyuk.Fibonacci;
 import lv_427.logic.roman_zahorui.WaysTileFloor;
 
 /**
  * Our first task.
+ *
  * @author lv-427
  * @version 1.0
  */
@@ -53,14 +55,14 @@ public class Main {
 
       input = scanner.nextLine();
 
-      if (input.equalsIgnoreCase("q")){
+      if (input.equalsIgnoreCase("q")) {
         System.out.println("Bye!");
         break;
       }
 
-      try{
+      try {
         select = Integer.valueOf(input);
-      }catch (Exception c){
+      } catch (Exception c) {
         System.out.println("You have to input integer or \'q\' to exit!!!");
         continue;
       }
@@ -87,6 +89,7 @@ public class Main {
         case 9:
           break;
         case 10:
+          algorithmExecutor = new PalindromicSubsequence();
           break;
         case 11:
           break;
