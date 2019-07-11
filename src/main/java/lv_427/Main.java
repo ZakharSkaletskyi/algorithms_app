@@ -3,6 +3,7 @@ package lv_427;
 import java.util.Scanner;
 import lv_427.logic.AlgorithmExecutor;
 import lv_427.logic.nazar_stasyuk.Fibonacci;
+import lv_427.logic.roman_zahorui.WaysTileFloor;
 
 /**
  * Our first task.
@@ -90,6 +91,7 @@ public class Main {
         case 11:
           break;
         case 12:
+          algorithmExecutor = new WaysTileFloor();
           break;
         case 13:
           break;
