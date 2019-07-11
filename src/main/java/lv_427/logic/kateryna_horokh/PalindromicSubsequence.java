@@ -12,7 +12,7 @@ import lv_427.logic.AlgorithmExecutor;
  * @version 1.0
  */
 public class PalindromicSubsequence implements AlgorithmExecutor {
-
+  /** Scanner for reading from console. */
   private Scanner sc;
 
   public PalindromicSubsequence() {
