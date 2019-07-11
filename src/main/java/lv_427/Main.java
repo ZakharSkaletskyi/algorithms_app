@@ -2,6 +2,8 @@ package lv_427;
 
 import java.util.Scanner;
 import lv_427.logic.AlgorithmExecutor;
+import lv_427.logic.marian_milian.IntrestingRow;
+import lv_427.logic.marian_milian.ModificationFibonacci;
 import lv_427.logic.kateryna_horokh.PalindromicSubsequence;
 import lv_427.logic.nazar_stasyuk.Fibonacci;
 import lv_427.logic.roman_zahorui.WaysTileFloor;
@@ -73,8 +75,11 @@ public class Main {
           algorithmExecutor = new Fibonacci();
           break;
         case 2:
+          algorithmExecutor=new ModificationFibonacci();
           break;
         case 3:
+            algorithmExecutor=new IntrestingRow();
+
           break;
         case 4:
           break;
