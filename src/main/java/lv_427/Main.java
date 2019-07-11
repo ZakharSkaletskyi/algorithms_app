@@ -8,7 +8,6 @@ import lv_427.logic.roman_zahorui.WaysTileFloor;
 
 /**
  * Our first task.
- *
  * @author lv-427
  * @version 1.0
  */
