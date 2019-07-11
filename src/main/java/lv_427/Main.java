@@ -4,10 +4,12 @@ import java.util.Scanner;
 import lv_427.logic.AlgorithmExecutor;
 import lv_427.logic.kateryna_horokh.PalindromicSubsequence;
 import lv_427.logic.nazar_stasyuk.Fibonacci;
+import lv_427.logic.nazar_stasyuk.MergeSort;
 import lv_427.logic.roman_zahorui.WaysTileFloor;
 
 /**
  * Our first task.
+ *
  * @author lv-427
  * @version 1.0
  */
@@ -108,6 +110,7 @@ public class Main {
         case 18:
           break;
         case 19:
+          algorithmExecutor = new MergeSort();
           break;
         default:
           System.out.println("Input integer between 1 and 19 or \'q\' to exit!");
