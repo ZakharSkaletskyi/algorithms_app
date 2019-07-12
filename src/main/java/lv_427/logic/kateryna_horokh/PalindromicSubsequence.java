@@ -2,8 +2,8 @@ package lv_427.logic.kateryna_horokh;
 
 import java.util.Scanner;
 
-import lv_427.exceptions.WrongInputException;
-import lv_427.logic.AlgorithmExecutor;
+import lv_427.exceptions.WrongLengthOfString;
+import lv_427.logic.TaskExecutor;
 
 import static lv_427.exceptions.WrongInputException.WRONG_LENGTH;
 
@@ -13,7 +13,7 @@ import static lv_427.exceptions.WrongInputException.WRONG_LENGTH;
  * @author Kateryna Horokh
  * @version 1.0
  */
-public class PalindromicSubsequence implements AlgorithmExecutor {
+public class PalindromicSubsequence implements TaskExecutor {
   /** Scanner for reading from console. */
   private Scanner sc;
 
