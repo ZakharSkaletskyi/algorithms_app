@@ -4,8 +4,7 @@ import java.util.Scanner;
 import lv_427.logic.AlgorithmExecutor;
 import lv_427.logic.marian_milian.InterestingRow;
 import lv_427.logic.marian_milian.ModificationFibonacci;
-import lv_427.logic.kateryna_horokh.PalindromicSubsequence;
-import lv_427.logic.nazar_stasyuk.Fibonacci;
+
 import lv_427.logic.roman_zahorui.WaysTileFloor;
 
 /**
@@ -72,13 +71,13 @@ public class Main {
       System.out.println();
       switch (select) {
         case 1:
-          algorithmExecutor = new Fibonacci();
           break;
         case 2:
-          algorithmExecutor=new ModificationFibonacci();
+          algorithmExecutor = new ModificationFibonacci();
           break;
         case 3:
-            algorithmExecutor=new InterestingRow();
+          algorithmExecutor = new InterestingRow();
+
 
           break;
         case 4:
@@ -94,12 +93,10 @@ public class Main {
         case 9:
           break;
         case 10:
-          algorithmExecutor = new PalindromicSubsequence();
           break;
         case 11:
           break;
         case 12:
-          algorithmExecutor = new WaysTileFloor();
           break;
         case 13:
           break;
