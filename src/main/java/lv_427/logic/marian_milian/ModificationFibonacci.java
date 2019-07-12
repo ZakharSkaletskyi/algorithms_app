@@ -27,7 +27,7 @@ public class ModificationFibonacci implements TaskExecutor {
   }
 
   public void execute() {}
-df
+
   /*The method witch  generate modification Fibonacci sequence
    */
   private void generateFibonacciSequence() {
