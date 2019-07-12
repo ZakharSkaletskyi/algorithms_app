@@ -2,16 +2,16 @@ package lv_427.logic.roman_zahorui;
 
 import java.util.Scanner;
 
-import lv_427.logic.AlgorithmExecutor;
+import lv_427.logic.TaskExecutor;
 
 /**
  * The class counts the number of ways of painting the fence such that at most 2 adjacent posts have
  * the same color. Reads strings from the console, converts them to integer values, and counts the
  * result. Implements AlgorithmExecutor interface.
  *
- * @see AlgorithmExecutor
+ * @see TaskExecutor
  */
-public class PaintingFence implements AlgorithmExecutor {
+public class PaintingFence implements TaskExecutor {
 
   private static final int POSTS_POS = 0;
   private static final int COLORS_POS = 1;
@@ -79,7 +79,7 @@ public class PaintingFence implements AlgorithmExecutor {
    * @param colors - amount of given colors.
    * @return - number of ways to paint the fence.
    */
-  private long countWays(int posts, int colors) {
+  public long countWays(int posts, int colors) {
     long[] subProblems = new long[posts + 1];
     subProblems[0] = 0;
     subProblems[1] = colors;
@@ -106,7 +106,7 @@ public class PaintingFence implements AlgorithmExecutor {
    * @return - an array of integers with length == 2. Represented posts amount at position 0 and
    *     сolors amount at position 1 or null if strData can't matches the correct string.
    */
-  private int[] parseStringToSize(String strData) throws NumberFormatException {
+  public int[] parseStringToSize(String strData) throws NumberFormatException {
 
     String strDataInLowCase = strData.toLowerCase();
     if (strDataInLowCase.contains(SPLIT_PATTERN)) {

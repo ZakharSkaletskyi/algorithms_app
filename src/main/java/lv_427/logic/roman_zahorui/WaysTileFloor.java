@@ -1,16 +1,16 @@
 package lv_427.logic.roman_zahorui;
 
 import java.util.Scanner;
-import lv_427.logic.AlgorithmExecutor;
+import lv_427.logic.TaskExecutor;
 
 /**
  * The class counts the number of ways to tile the floor of size n x m using 1 x m size tiles. Reads
  * strings from the console, converts them to integer values, and counts the result. Implements
- * AlgorithmExecutor interface.
+ * TaskExecutor interface.
  *
- * @see AlgorithmExecutor
+ * @see TaskExecutor
  */
-public class WaysTileFloor implements AlgorithmExecutor {
+public class WaysTileFloor implements TaskExecutor {
 
   private static final int WIDTH_POS = 0;
   private static final int HEIGHT_POS = 1;
@@ -66,7 +66,7 @@ public class WaysTileFloor implements AlgorithmExecutor {
    * @param m - height of the floor and length of a tile.
    * @return - number of ways to tile the given floor of size n x m.
    */
-  private int getWaysToTile(int n, int m) {
+  public int getWaysToTile(int n, int m) {
     int[] count = new int[n + 1];
     count[0] = 0;
 
@@ -90,7 +90,7 @@ public class WaysTileFloor implements AlgorithmExecutor {
    * @return Size of the floor as an array of integers with length == 2 or null if strData can't
    *     matches the correct string.
    */
-  private int[] parseStringToSize(String strData) throws NumberFormatException {
+  public int[] parseStringToSize(String strData) throws NumberFormatException {
 
     String strDataInLowCase = strData.toLowerCase();
     if (strDataInLowCase.contains(SPLIT_PATTERN)) {
