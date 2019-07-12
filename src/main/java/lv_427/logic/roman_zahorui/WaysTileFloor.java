@@ -26,14 +26,23 @@ public class WaysTileFloor implements AlgorithmExecutor {
           + "\nBoth n and m must be positive integers, where n >= 1 and m >= 2. "
           + "\nExample : 4 x 3";
 
+  private Scanner sc;
+
+  /**
+   * Constructs a new <code>WaysTileFloor</code> and creates an object of <code>Scanner</code> class
+   * for further use.
+   */
+  public WaysTileFloor() {
+    this.sc = new Scanner(System.in);
+  }
+
   /** Uses the scanner object to read input data and prints a result to console. */
   public void execute() {
     System.out.println(TERMS_OF_USE);
-    Scanner scanner = new Scanner(System.in);
     int[] floorSize = null;
     while (null == floorSize) {
       try {
-        floorSize = parseStringToSize(scanner.nextLine());
+        floorSize = parseStringToSize(sc.nextLine());
         if (null == floorSize) {
           System.out.println(FAIL_MESSAGE);
         }
