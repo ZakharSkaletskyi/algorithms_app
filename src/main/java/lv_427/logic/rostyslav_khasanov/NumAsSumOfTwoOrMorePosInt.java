@@ -1,6 +1,7 @@
 package lv_427.logic.rostyslav_khasanov;
 
-import lv_427.logic.AlgorithmExecutor;
+import lv_427.logic.TaskExecutor;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -11,7 +12,8 @@ import java.util.Scanner;
  *
  * @version 1.0
  */
-public class NumAsSumOfTwoOrMorePosInt implements AlgorithmExecutor {
+
+public class NumAsSumOfTwoOrMorePosInt implements TaskExecutor {
   boolean check = true;
 
   public void execute() {

@@ -4,9 +4,9 @@ package lv_427.logic.marian_milian;
 
 import java.util.ArrayList;
 import java.util.List;
-import lv_427.logic.AlgorithmExecutor;
+import lv_427.logic.TaskExecutor;
 
-public class IntrestingRow implements AlgorithmExecutor {
+public class IntrestingRow implements TaskExecutor {
 
   private final int LENGTH_OF_INTRESTING_ROW = 20;
   private List<Integer> sequenceOfIntrestingRow;

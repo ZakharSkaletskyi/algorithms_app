@@ -1,14 +1,11 @@
 package lv_427.logic.rostyslav_khasanov;
 
-import java.io.IOException;
-import lv_427.logic.AlgorithmExecutor;
+import lv_427.logic.TaskExecutor;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class CountOfWaysToSumToN implements AlgorithmExecutor {
+public class CountOfWaysToSumToN implements TaskExecutor {
 
   public void execute() {
 
