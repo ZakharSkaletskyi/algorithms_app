@@ -1,16 +1,16 @@
 package lv_427.logic.roman_zahorui;
 
 import java.util.Scanner;
-import lv_427.logic.AlgorithmExecutor;
+import lv_427.logic.TaskExecutor;
 
 /**
  * The class counts the number of ways to tile the floor of size n x m using 1 x m size tiles. Reads
  * strings from the console, converts them to integer values, and counts the result. Implements
- * AlgorithmExecutor interface.
+ * TaskExecutor interface.
  *
- * @see AlgorithmExecutor
+ * @see TaskExecutor
  */
-public class WaysTileFloor implements AlgorithmExecutor {
+public class WaysTileFloor implements TaskExecutor {
 
   private static final int WIDTH_POSITION = 0;
   private static final int HEIGHT_POSITION = 1;

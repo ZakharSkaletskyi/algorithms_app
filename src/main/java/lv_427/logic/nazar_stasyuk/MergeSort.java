@@ -5,7 +5,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 import lv_427.exceptions.BadSizeOfArrayException;
-import lv_427.logic.AlgorithmExecutor;
+import lv_427.logic.TaskExecutor;
 
 /**
  * Description: class is for demo how merge sort works(It shows details when you input size 16 or
@@ -14,7 +14,7 @@ import lv_427.logic.AlgorithmExecutor;
  * @author Nazar Stasyuk
  * @version 1.0
  */
-public class MergeSort implements AlgorithmExecutor {
+public class MergeSort implements TaskExecutor {
   private final int maxRandomInt = 50;
   private final int minSizeToShowLogs = 16;
   private Scanner sc;

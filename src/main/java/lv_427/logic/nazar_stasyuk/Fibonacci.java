@@ -1,6 +1,6 @@
 package lv_427.logic.nazar_stasyuk;
 
-import lv_427.logic.AlgorithmExecutor;
+import lv_427.logic.TaskExecutor;
 
 import java.util.Scanner;
 
@@ -10,7 +10,7 @@ import java.util.Scanner;
  * @author Nazar Stasyuk
  * @version 1.0
  */
-public class Fibonacci implements AlgorithmExecutor {
+public class Fibonacci implements TaskExecutor {
 
   private Scanner sc;
 
