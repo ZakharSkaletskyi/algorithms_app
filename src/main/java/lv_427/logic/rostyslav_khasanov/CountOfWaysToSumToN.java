@@ -6,53 +6,44 @@ import lv_427.logic.AlgorithmExecutor;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class CountOfWaysToSumToN implements AlgorithmExecutor {
 
   public void execute() {
 
-    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    Scanner sc = new Scanner(System.in);
     String strArr[];
     int numbers[];
     String str = "";
-    int num = 0;
-    int sum = 0;
-    int counter = 0;
+    int number = 0;
 
     System.out.println("Enter array of numbers like '1 5 2 12 1': \n");
     try {
-      str = br.readLine();
-    } catch (IOException e) {
+      str = sc.nextLine();
+    } catch (Exception e) {
       e.printStackTrace();
     }
+    number = Integer.parseInt(sc.nextLine());
     strArr = str.split(" ");
-    numbers = new int[strArr.length];
+    numbers = new int[strArr.length + 1];
     for (int i = 0; i < strArr.length; i++) {
       numbers[i] = Integer.parseInt(strArr[i]);
     }
     System.out.println(Arrays.toString(numbers));
-    try {
-      num = Integer.parseInt(br.readLine());
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
+    System.out.println(countWays(numbers, number));
+  }
 
-    for (int i = 0; i < numbers.length; i++) {
-      while (sum < num) {
-        sum += numbers[i];
-        if (sum == num) {
-          counter++;
+  public int countWays(int[] arr, int n) {
+    int mas[] = arr;
+    mas[0] = 1;
+    for (int i = 1; i < n; i++) {
+      for (int j = 1; j < n; j++) {
+        if (i >= mas[i]) {
+          mas[i] += mas[i - mas[j]];
         }
       }
-      while (sum < num) {
-      }
-      //        for (int j = 1; j < numbers.length; j++) {
-      //            if (numbers[i] + j == num) {
-      //                counter++;
-      //            }
-      //        }
-      sum = 0;
     }
-    System.out.println(counter);
+    return mas[n];
   }
 }
