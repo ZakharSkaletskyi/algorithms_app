@@ -1,0 +1,94 @@
+package lv_427.logic.roman_zahorui;
+
+import java.util.Scanner;
+
+import lv_427.logic.AlgorithmExecutor;
+
+/** */
+public class PaintingFence implements AlgorithmExecutor {
+
+  private static final int POSTS_POSITION = 0;
+  private static final int COLORS_POSITION = 1;
+  private static final int POSTS_MIN_VAL = 1;
+  private static final int COLORS_MIN_VAL = 1;
+  private static final int ARRAY_LENGTH = 2;
+  private static final String SPLIT_PATTERN = " x ";
+  private static final String FAIL_MESSAGE = "Try again!";
+  private static final String INPUT_MESSAGE = "Input : ";
+  private static final String OUTPUT_MESSAGE = "Output : ";
+  private static final String OUTPUT_MSG_MORE = " or even more!";
+  private static final String TERMS_OF_USE =
+      "Enter amount of posts and amount of colors as p x c. Where p = posts and c = colors."
+          + "\nBoth p and c must be positive integers, where p > 0 and c > 0."
+          + "\nExample : 4 x 3";
+
+  /** Uses the scanner object to read input data and prints a result to console. */
+  public void execute() {
+    System.out.println(TERMS_OF_USE);
+    Scanner scanner = new Scanner(System.in);
+    int postsAmount = 0;
+    int colorAmount = 0;
+    while (postsAmount <= 0 && colorAmount <= 0) {
+      try {
+        int[] amounts = parseStringToSize(scanner.nextLine());
+        if (null == amounts) {
+          System.out.println(FAIL_MESSAGE);
+        } else {
+          postsAmount = amounts[0];
+          colorAmount = amounts[1];
+        }
+      } catch (NumberFormatException e) {
+        System.out.println(FAIL_MESSAGE);
+      }
+    }
+
+    String inputMsg = INPUT_MESSAGE + postsAmount + SPLIT_PATTERN + colorAmount;
+    System.out.println(inputMsg);
+    long amountOfWays = countWays(postsAmount, colorAmount);
+    String outputStr = OUTPUT_MESSAGE + amountOfWays;
+    if (amountOfWays == Integer.MAX_VALUE) {
+      outputStr += OUTPUT_MSG_MORE;
+    }
+    System.out.println(outputStr);
+  }
+
+  private long countWays(int posts, int colors) {
+    long[] subProblems = new long[posts + 1];
+    subProblems[0] = 0;
+    subProblems[1] = colors;
+    long sameColor = 0;
+    long diffColor = colors;
+    for (int i = 2; i <= posts; i++) {
+      sameColor = diffColor;
+      diffColor = (subProblems[i - 1] * (colors - 1));
+      subProblems[i] = sameColor + diffColor;
+      if (subProblems[i] > Integer.MAX_VALUE) {
+        return Integer.MAX_VALUE;
+      }
+    }
+    return subProblems[posts];
+  }
+
+  /**
+   * The method tries to extract data from an input string.
+   *
+   * @param strData - input string data.
+   * @return - an array of integers with length == 2. Represented posts amount at position 0 and
+   *     сolors amount at position 1 or null if strData can't matches the correct string.
+   */
+  private int[] parseStringToSize(String strData) throws NumberFormatException {
+    String strDataInLowCase = strData.toLowerCase();
+    if (strDataInLowCase.contains(SPLIT_PATTERN)) {
+      String[] sizeParts = strDataInLowCase.split(SPLIT_PATTERN);
+      int[] sizeArray = new int[ARRAY_LENGTH];
+      int widthValue = Integer.valueOf(sizeParts[POSTS_POSITION]);
+      int heightValue = Integer.valueOf(sizeParts[COLORS_POSITION]);
+      if (widthValue >= POSTS_MIN_VAL && heightValue >= COLORS_MIN_VAL) {
+        sizeArray[POSTS_POSITION] = widthValue;
+        sizeArray[COLORS_POSITION] = heightValue;
+        return sizeArray;
+      }
+    }
+    return null;
+  }
+}
