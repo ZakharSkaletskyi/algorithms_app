@@ -29,15 +29,24 @@ public class PaintingFence implements AlgorithmExecutor {
           + "\nOutput values greater than 2147483647 are not counted."
           + "\nExample : 2 x 2";
 
+  private Scanner sc;
+
+  /**
+   * Constructs a new <code>PaintingFence</code> and creates an object of <code>Scanner</code> class
+   * for further use.
+   */
+  public PaintingFence() {
+    this.sc = new Scanner(System.in);
+  }
+
   /** Uses the scanner object to read input data and prints a result to console. */
   public void execute() {
     System.out.println(TERMS_OF_USE);
-    Scanner scanner = new Scanner(System.in);
     int postsAmount = 0;
     int colorAmount = 0;
     while (postsAmount <= 0 && colorAmount <= 0) {
       try {
-        int[] amounts = parseStringToSize(scanner.nextLine());
+        int[] amounts = parseStringToSize(sc.nextLine());
         if (null == amounts) {
           System.out.println(FAIL_MESSAGE);
         } else {
@@ -51,32 +60,38 @@ public class PaintingFence implements AlgorithmExecutor {
 
     String inputMsg = INPUT_MSG + postsAmount + SPLIT_PATTERN + colorAmount;
     System.out.println(inputMsg);
+
     long amountOfWays = countWays(postsAmount, colorAmount);
     String outputStr = OUTPUT_MSG + amountOfWays;
+
     if (amountOfWays == Integer.MAX_VALUE) {
       outputStr += OUTPUT_MSG_MORE;
     }
+
     System.out.println(outputStr);
   }
   /**
    * Implementation of the counting algorithm of ways paint the fence such that at most 2 adjacent
-   * posts have the same color.
+   * posts have the same color. If output values greater than <code>Integer.MAX_VALUE</code> returns
+   * 2147483647.
    *
    * @param posts - amount of given posts
    * @param colors - amount of given colors.
    * @return - number of ways to paint the fence.
    */
-
   private long countWays(int posts, int colors) {
     long[] subProblems = new long[posts + 1];
     subProblems[0] = 0;
     subProblems[1] = colors;
+
     long sameColor;
     long diffColor = colors;
+
     for (int i = 2; i <= posts; i++) {
       sameColor = diffColor;
       diffColor = (subProblems[i - 1] * (colors - 1));
       subProblems[i] = sameColor + diffColor;
+
       if (subProblems[i] > Integer.MAX_VALUE) {
         return Integer.MAX_VALUE;
       }
@@ -92,12 +107,16 @@ public class PaintingFence implements AlgorithmExecutor {
    *     сolors amount at position 1 or null if strData can't matches the correct string.
    */
   private int[] parseStringToSize(String strData) throws NumberFormatException {
+
     String strDataInLowCase = strData.toLowerCase();
     if (strDataInLowCase.contains(SPLIT_PATTERN)) {
+
       String[] sizeParts = strDataInLowCase.split(SPLIT_PATTERN);
       int[] sizeArray = new int[ARRAY_LENGTH];
+
       int widthValue = Integer.valueOf(sizeParts[POSTS_POS]);
       int heightValue = Integer.valueOf(sizeParts[COLORS_POS]);
+
       if (widthValue >= POSTS_MIN_VAL && heightValue >= COLORS_MIN_VAL) {
         sizeArray[POSTS_POS] = widthValue;
         sizeArray[COLORS_POS] = heightValue;
