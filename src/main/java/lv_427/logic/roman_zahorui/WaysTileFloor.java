@@ -28,48 +28,25 @@ public class WaysTileFloor implements AlgorithmExecutor {
 
   /** Uses the scanner object to read input data and prints a result to console. */
   public void execute() {
-    printMessage(TERMS_OF_USE);
+    System.out.println(TERMS_OF_USE);
     Scanner scanner = new Scanner(System.in);
     int[] floorSize = null;
     while (null == floorSize) {
       try {
         floorSize = parseStringToSize(scanner.nextLine());
         if (null == floorSize) {
-          printMessage(FAIL_MESSAGE);
+          System.out.println(FAIL_MESSAGE);
         }
       } catch (NumberFormatException e) {
-        printMessage(FAIL_MESSAGE);
+        System.out.println(FAIL_MESSAGE);
       }
     }
     String inputMsg =
         INPUT_MESSAGE + floorSize[WIDTH_POSITION] + SPLIT_PATTERN + floorSize[HEIGHT_POSITION];
-    printMessage(inputMsg);
+    System.out.println(inputMsg);
     int amountOfWays = getWaysToTile(floorSize[0], floorSize[1]);
     String outputStr = OUTPUT_MESSAGE + amountOfWays;
-    printMessage(outputStr);
-  }
-
-  /**
-   * The method tries to extract data from the input string.
-   *
-   * @param strData - input string data.
-   * @return Size of the floor as an array of integers with length == 2 or null if strData can't
-   *     matches the correct string.
-   */
-  private int[] parseStringToSize(String strData) throws NumberFormatException {
-    String strDataInLowCase = strData.toLowerCase();
-    if (strDataInLowCase.contains(SPLIT_PATTERN)) {
-      String[] sizeParts = strDataInLowCase.split(SPLIT_PATTERN);
-      int[] sizeArray = new int[SIZE_ARRAY_LENGTH];
-      int widthValue = Integer.valueOf(sizeParts[WIDTH_POSITION]);
-      int heightValue = Integer.valueOf(sizeParts[HEIGHT_POSITION]);
-      if (widthValue >= WIDTH_MIN_VAL && heightValue >= HEIGHT_MIN_VAL) {
-        sizeArray[WIDTH_POSITION] = widthValue;
-        sizeArray[HEIGHT_POSITION] = heightValue;
-        return sizeArray;
-      }
-    }
-    return null;
+    System.out.println(outputStr);
   }
 
   /**
@@ -98,11 +75,25 @@ public class WaysTileFloor implements AlgorithmExecutor {
   }
 
   /**
-   * Just prints the input message to console.
+   * The method tries to extract data from the input string.
    *
-   * @param msg - a print string
+   * @param strData - input string data.
+   * @return Size of the floor as an array of integers with length == 2 or null if strData can't
+   *     matches the correct string.
    */
-  private void printMessage(String msg) {
-    System.out.println(msg);
+  private int[] parseStringToSize(String strData) throws NumberFormatException {
+    String strDataInLowCase = strData.toLowerCase();
+    if (strDataInLowCase.contains(SPLIT_PATTERN)) {
+      String[] sizeParts = strDataInLowCase.split(SPLIT_PATTERN);
+      int[] sizeArray = new int[SIZE_ARRAY_LENGTH];
+      int widthValue = Integer.valueOf(sizeParts[WIDTH_POSITION]);
+      int heightValue = Integer.valueOf(sizeParts[HEIGHT_POSITION]);
+      if (widthValue >= WIDTH_MIN_VAL && heightValue >= HEIGHT_MIN_VAL) {
+        sizeArray[WIDTH_POSITION] = widthValue;
+        sizeArray[HEIGHT_POSITION] = heightValue;
+        return sizeArray;
+      }
+    }
+    return null;
   }
 }
