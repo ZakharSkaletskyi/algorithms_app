@@ -25,31 +25,58 @@ public class HighEffortLowEffort implements TaskExecutor {
      */
     @Override
     public void execute() {
-
-        // Returns maximum amount of task that can be
-        // done till day n
-        int n = 5;
-        int[] high = {3, 6, 8, 7, 6};
-        int[] low = {1, 5, 4, 5, 3};
-
+        /**
+         * @return - Returns the maximum among the 2 numbers
+         */
+        static int max ( int x, int y)
         {
-            // An array task_dp that stores the maximum
-            // task done
-            int[] task_dp = new int[n + 1];
+            return (x > y ? x : y);
+        }
 
-            // If n = 0, no solution exists
-            task_dp[0] = 0;
+        /**
+         * @param days - quantity of days
+         * @param high - range of max tasks
+         * @param low - range of max tasks
+         */
+        System.out.println("Enter the period(in days):");
+        int days = sc.nextInt();
 
-            // If n = 1, high effort task on that day will
-            // be the solution
-            task_dp[1] = high[0];
+        System.out.println("Enter amount of the high effort task:");
+        int[] high = new int[days];
 
-            // Fill the entire array determining which
-            // task to choose on day i
-            for (int i = 2; i <= n; i++)
-                task_dp[i] = Math.max(high[i - 1] + task_dp[i - 2],
-                        low[i - 1] + task_dp[i - 1]);
-            // return task_dp[n];
+        for (int i = 0; i < days; i++) {
+            high[i] = sc.nextInt();
+        }
+        System.out.println("Enter amount of the low effort task:");
+        int[] low = new int[days];
+
+        for (int i = 0; i < days; i++) {
+            low[i] = sc.nextInt();
+        }
+
+        /**
+         * An array task_dp that stores the maximum
+         * task done
+         */
+        int[] task_dp = new int[days + 1];
+
+        /**
+         * If n = 0, no solution exists
+         */
+        task_dp[0] = 0;
+
+        /** If n = 1, high effort task on that day will
+         *  be the solution
+         */
+        task_dp[1] = high[0];
+
+        /** Fill the entire array determining which
+         * task to choose on day i
+         */
+        for (int i = 2; i <= days; i++) {
+            task_dp[i] = max(high[i - 1] + task_dp[i - 2],
+                    low[i - 1] + task_dp[i - 1]);
+            System.out.println(task_dp[days]);
         }
     }
 }
