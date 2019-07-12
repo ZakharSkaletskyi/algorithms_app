@@ -1,10 +1,11 @@
 package lv_427.logic.marian_milian;
 
+import lv_427.logic.TaskExecutor;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import lv_427.logic.AlgorithmExecutor;
 /**
  * Interesting row.
  *
@@ -13,7 +14,7 @@ import lv_427.logic.AlgorithmExecutor;
  * @author Marian Milian
  * @version 1.0
  */
-public class InterestingRow implements AlgorithmExecutor {
+public class InterestingRow implements TaskExecutor {
 
   private final int LENGTH_OF_INTERESTING_ROW = 20;
   private List<Integer> sequenceOfInterestingRow;

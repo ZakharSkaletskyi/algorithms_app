@@ -3,8 +3,7 @@ package lv_427.logic.marian_milian;
 import java.util.ArrayList;
 import java.util.List;
 
-import lv_427.logic.AlgorithmExecutor;
-
+import lv_427.logic.TaskExecutor;
 /**
  * Modification Fibonacci sequence.
  *
@@ -13,7 +12,7 @@ import lv_427.logic.AlgorithmExecutor;
  * @author Marian Milian
  * @version 1.0
  */
-public class ModificationFibonacci implements AlgorithmExecutor {
+public class ModificationFibonacci implements TaskExecutor {
   private final int LENGTH_OF_FIBONACCI_ROW = 51;
   private List<Integer> sequenceFibonacciRow;
 
