@@ -50,10 +50,14 @@ public class WaysTileFloor implements TaskExecutor {
         System.out.println(FAIL_MESSAGE);
       }
     }
-    String inputMsg =
-        INPUT_MESSAGE + floorSize[WIDTH_POS] + SPLIT_PATTERN + floorSize[HEIGHT_POS];
+    int width = floorSize[WIDTH_POS];
+    int height = floorSize[HEIGHT_POS];
+
+    String inputMsg = INPUT_MESSAGE + width + SPLIT_PATTERN + height;
     System.out.println(inputMsg);
-    int amountOfWays = getWaysToTile(floorSize[0], floorSize[1]);
+
+    int amountOfWays = getWaysToTile(width, height);
+
     String outputStr = OUTPUT_MESSAGE + amountOfWays;
     System.out.println(outputStr);
   }
