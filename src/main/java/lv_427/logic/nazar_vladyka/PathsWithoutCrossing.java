@@ -99,8 +99,4 @@ public class PathsWithoutCrossing implements TaskExecutor {
 
     return catalan[n];
   }
-
-  public static void main(String[] args) {
-    new PathsWithoutCrossing().execute();
-  }
 }
