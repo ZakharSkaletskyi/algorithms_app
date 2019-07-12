@@ -12,11 +12,11 @@ import lv_427.logic.AlgorithmExecutor;
  */
 public class WaysTileFloor implements AlgorithmExecutor {
 
-  private static final int WIDTH_POSITION = 0;
-  private static final int HEIGHT_POSITION = 1;
+  private static final int WIDTH_POS = 0;
+  private static final int HEIGHT_POS = 1;
   private static final int WIDTH_MIN_VAL = 1;
   private static final int HEIGHT_MIN_VAL = 2;
-  private static final int SIZE_ARRAY_LENGTH = 2;
+  private static final int ARRAY_LENGTH = 2;
   private static final String SPLIT_PATTERN = " x ";
   private static final String FAIL_MESSAGE = "Try again!";
   private static final String INPUT_MESSAGE = "Input : ";
@@ -51,7 +51,7 @@ public class WaysTileFloor implements AlgorithmExecutor {
       }
     }
     String inputMsg =
-        INPUT_MESSAGE + floorSize[WIDTH_POSITION] + SPLIT_PATTERN + floorSize[HEIGHT_POSITION];
+        INPUT_MESSAGE + floorSize[WIDTH_POS] + SPLIT_PATTERN + floorSize[HEIGHT_POS];
     System.out.println(inputMsg);
     int amountOfWays = getWaysToTile(floorSize[0], floorSize[1]);
     String outputStr = OUTPUT_MESSAGE + amountOfWays;
@@ -91,15 +91,19 @@ public class WaysTileFloor implements AlgorithmExecutor {
    *     matches the correct string.
    */
   private int[] parseStringToSize(String strData) throws NumberFormatException {
+
     String strDataInLowCase = strData.toLowerCase();
     if (strDataInLowCase.contains(SPLIT_PATTERN)) {
+
       String[] sizeParts = strDataInLowCase.split(SPLIT_PATTERN);
-      int[] sizeArray = new int[SIZE_ARRAY_LENGTH];
-      int widthValue = Integer.valueOf(sizeParts[WIDTH_POSITION]);
-      int heightValue = Integer.valueOf(sizeParts[HEIGHT_POSITION]);
+      int[] sizeArray = new int[ARRAY_LENGTH];
+
+      int widthValue = Integer.valueOf(sizeParts[WIDTH_POS]);
+      int heightValue = Integer.valueOf(sizeParts[HEIGHT_POS]);
+
       if (widthValue >= WIDTH_MIN_VAL && heightValue >= HEIGHT_MIN_VAL) {
-        sizeArray[WIDTH_POSITION] = widthValue;
-        sizeArray[HEIGHT_POSITION] = heightValue;
+        sizeArray[WIDTH_POS] = widthValue;
+        sizeArray[HEIGHT_POS] = heightValue;
         return sizeArray;
       }
     }
