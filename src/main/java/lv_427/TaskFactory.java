@@ -12,6 +12,7 @@ import lv_427.logic.roman_zahorui.PaintingFence;
 import lv_427.logic.roman_zahorui.WaysTileFloor;
 import lv_427.logic.rostyslav_khasanov.CountOfWaysToSumToN;
 import lv_427.logic.rostyslav_khasanov.NumAsSumOfTwoOrMorePosInt;
+import lv_427.logic.zakhar_skaletskyi.WaysToCoverIn3steps;
 import lv_427.logic.agarkov_oleksandr.*;
 
 public class TaskFactory {
@@ -67,6 +68,7 @@ public class TaskFactory {
                 taskExecutor = new NumAsSumOfTwoOrMorePosInt();
                 break;
             case 7:
+            	taskExecutor = new WaysToCoverIn3steps();
                 break;
             case 8:
                 taskExecutor = new PathsWithoutCrossing();
