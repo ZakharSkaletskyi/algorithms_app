@@ -6,6 +6,7 @@ import lv_427.logic.marian_milian.IntrestingRow;
 import lv_427.logic.marian_milian.ModificationFibonacci;
 import lv_427.logic.nazar_stasyuk.Fibonacci;
 import lv_427.logic.nazar_stasyuk.MergeSort;
+import lv_427.logic.roman_zahorui.PaintingFence;
 import lv_427.logic.roman_zahorui.WaysTileFloor;
 import lv_427.logic.rostyslav_khasanov.CountOfWaysToSumToN;
 import lv_427.logic.rostyslav_khasanov.NumAsSumOfTwoOrMorePosInt;
@@ -76,6 +77,7 @@ public class TaskFactory {
         taskExecutor = new WaysTileFloor();
         break;
       case 13:
+        taskExecutor = new PaintingFence();
         break;
       case 14:
         break;
