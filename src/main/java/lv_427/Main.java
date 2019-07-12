@@ -1,15 +1,16 @@
 package lv_427;
 
-import java.util.Scanner;
 import lv_427.logic.AlgorithmExecutor;
+import lv_427.logic.kateryna_horokh.PalindromicSubsequence;
 import lv_427.logic.marian_milian.IntrestingRow;
 import lv_427.logic.marian_milian.ModificationFibonacci;
-import lv_427.logic.kateryna_horokh.PalindromicSubsequence;
 import lv_427.logic.nazar_stasyuk.Fibonacci;
 import lv_427.logic.nazar_stasyuk.MergeSort;
 import lv_427.logic.roman_zahorui.WaysTileFloor;
 import lv_427.logic.rostyslav_khasanov.CountOfWaysToSumToN;
 import lv_427.logic.rostyslav_khasanov.NumAsSumOfTwoOrMorePosInt;
+
+import java.util.Scanner;
 
 /**
  * Our first task.
@@ -45,10 +46,6 @@ public class Main {
   /**
    * This is main method.
    *
-   *
-   *
-   *
-   *
    * @param args args
    */
   public static void main(String[] args) {
@@ -82,21 +79,23 @@ public class Main {
           algorithmExecutor = new Fibonacci();
           break;
         case 2:
-          algorithmExecutor=new ModificationFibonacci();
+          algorithmExecutor = new ModificationFibonacci();
           break;
         case 3:
-            algorithmExecutor=new IntrestingRow();
+          algorithmExecutor = new IntrestingRow();
 
           break;
         case 4:
           break;
-        case 5: {
-          algorithmExecutor = new CountOfWaysToSumToN();
-        }
+        case 5:
+          {
+            algorithmExecutor = new CountOfWaysToSumToN();
+          }
           break;
-        case 6: {
-          algorithmExecutor = new NumAsSumOfTwoOrMorePosInt();
-        }
+        case 6:
+          {
+            algorithmExecutor = new NumAsSumOfTwoOrMorePosInt();
+          }
           break;
         case 7:
           break;

@@ -1,8 +1,8 @@
 package lv_427.logic.nazar_stasyuk;
 
-import java.util.Scanner;
-
 import lv_427.logic.AlgorithmExecutor;
+
+import java.util.Scanner;
 
 /**
  * Class for finding number in Fibonacci sequence by position.
