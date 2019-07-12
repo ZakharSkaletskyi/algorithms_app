@@ -4,6 +4,13 @@ import lv_427.logic.AlgorithmExecutor;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * Ways to write n as sum of two or more positive integers
+ *
+ * <p>The goal: To find in how many ways is possible to calculate n with positive integers.
+ *
+ * @version 1.0
+ */
 public class NumAsSumOfTwoOrMorePosInt implements AlgorithmExecutor {
   boolean check = true;
 
