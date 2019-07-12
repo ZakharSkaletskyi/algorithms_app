@@ -1,6 +1,7 @@
 package lv_427;
 
 import lv_427.logic.TaskExecutor;
+import lv_427.logic.kateryna_horokh.FriendPairs;
 import lv_427.logic.kateryna_horokh.PalindromicSubsequence;
 import lv_427.logic.marian_milian.IntrestingRow;
 import lv_427.logic.marian_milian.ModificationFibonacci;
@@ -72,6 +73,7 @@ public class TaskFactory {
         taskExecutor = new PalindromicSubsequence();
         break;
       case 11:
+        taskExecutor = new FriendPairs();
         break;
       case 12:
         taskExecutor = new WaysTileFloor();

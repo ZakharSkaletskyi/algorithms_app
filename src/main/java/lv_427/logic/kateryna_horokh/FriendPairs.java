@@ -3,7 +3,7 @@ package lv_427.logic.kateryna_horokh;
 import java.util.Scanner;
 
 import lv_427.exceptions.WrongInputException;
-import lv_427.logic.AlgorithmExecutor;
+import lv_427.logic.TaskExecutor;
 
 import static lv_427.exceptions.WrongInputException.WRONG_INPUT;
 
@@ -14,7 +14,7 @@ import static lv_427.exceptions.WrongInputException.WRONG_INPUT;
  * @author Kateryna Horokh
  * @version 1.0
  */
-public class FriendPairs implements AlgorithmExecutor {
+public class FriendPairs implements TaskExecutor {
 
   private Scanner sc;
 
