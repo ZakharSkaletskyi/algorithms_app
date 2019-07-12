@@ -1,6 +1,7 @@
 package lv_427.logic.agarkov_oleksandr;
 
 import java.util.Scanner;
+
 import lv_427.logic.TaskExecutor;
 
 /**
@@ -28,8 +29,8 @@ public class HighEffortLowEffort implements TaskExecutor {
         // Returns maximum amount of task that can be
         // done till day n
         int n = 5;
-        int []high = {3, 6, 8, 7, 6};
-        int []low = {1, 5, 4, 5, 3};
+        int[] high = {3, 6, 8, 7, 6};
+        int[] low = {1, 5, 4, 5, 3};
 
         {
             // An array task_dp that stores the maximum
