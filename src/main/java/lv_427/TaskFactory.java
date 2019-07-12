@@ -78,6 +78,7 @@ public class TaskFactory {
         taskExecutor = new WaysTileFloor();
         break;
       case 13:
+        taskExecutor = new PaintingFence();
         break;
       case 14:
         break;
