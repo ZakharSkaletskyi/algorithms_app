@@ -24,7 +24,7 @@ public class MergeSort implements TaskExecutor {
     this.sc = new Scanner(System.in);
   }
 
-  /** Executable method. */
+  /** Executable method.*/
   public void execute() {
     String input;
     while (true) {
