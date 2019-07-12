@@ -2,6 +2,7 @@ package lv_427;
 
 import java.util.Scanner;
 import lv_427.logic.AlgorithmExecutor;
+import lv_427.logic.kateryna_horokh.FriendPairs;
 import lv_427.logic.marian_milian.IntrestingRow;
 import lv_427.logic.marian_milian.ModificationFibonacci;
 import lv_427.logic.kateryna_horokh.PalindromicSubsequence;
@@ -98,8 +99,10 @@ public class Main {
         case 9:
           break;
         case 10:
+          algorithmExecutor = new PalindromicSubsequence();
           break;
         case 11:
+            algorithmExecutor = new FriendPairs();
           break;
         case 12:
           break;
