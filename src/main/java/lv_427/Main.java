@@ -8,6 +8,8 @@ import lv_427.logic.kateryna_horokh.PalindromicSubsequence;
 import lv_427.logic.nazar_stasyuk.Fibonacci;
 import lv_427.logic.nazar_stasyuk.MergeSort;
 import lv_427.logic.roman_zahorui.WaysTileFloor;
+import lv_427.logic.rostyslav_khasanov.CountOfWaysToSumToN;
+import lv_427.logic.rostyslav_khasanov.NumAsSumOfTwoOrMorePosInt;
 
 /**
  * Our first task.
@@ -88,9 +90,13 @@ public class Main {
           break;
         case 4:
           break;
-        case 5:
+        case 5: {
+          algorithmExecutor = new CountOfWaysToSumToN();
+        }
           break;
-        case 6:
+        case 6: {
+          algorithmExecutor = new NumAsSumOfTwoOrMorePosInt();
+        }
           break;
         case 7:
           break;
