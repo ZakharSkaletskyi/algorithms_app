@@ -38,20 +38,24 @@ public class HighEffortLowEffort implements TaskExecutor {
          * @param high - range of max tasks
          * @param low - range of max tasks
          */
-        System.out.println("Enter the period(in days):");
-        int days = sc.nextInt();
+        try {
+            System.out.println("Enter the period(in days):");
+            int days = sc.nextInt();
 
-        System.out.println("Enter amount of the high effort task:");
-        int[] high = new int[days];
+            System.out.println("Enter amount of the high effort task:");
+            int[] high = new int[days];
 
-        for (int i = 0; i < days; i++) {
-            high[i] = sc.nextInt();
-        }
-        System.out.println("Enter amount of the low effort task:");
-        int[] low = new int[days];
+            for (int i = 0; i < days; i++) {
+                high[i] = sc.nextInt();
+            }
+            System.out.println("Enter amount of the low effort task:");
+            int[] low = new int[days];
 
-        for (int i = 0; i < days; i++) {
-            low[i] = sc.nextInt();
+            for (int i = 0; i < days; i++) {
+                low[i] = sc.nextInt();
+            }
+        } catch (Exception ex) {
+            System.out.println("You have to input an integer\n" + ex.msg() );
         }
 
         /**
