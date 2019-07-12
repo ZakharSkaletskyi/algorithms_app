@@ -2,7 +2,7 @@ package lv_427;
 
 import java.util.Scanner;
 import lv_427.logic.AlgorithmExecutor;
-import lv_427.logic.marian_milian.IntrestingRow;
+import lv_427.logic.marian_milian.InterestingRow;
 import lv_427.logic.marian_milian.ModificationFibonacci;
 import lv_427.logic.kateryna_horokh.PalindromicSubsequence;
 import lv_427.logic.nazar_stasyuk.Fibonacci;
@@ -78,7 +78,7 @@ public class Main {
           algorithmExecutor=new ModificationFibonacci();
           break;
         case 3:
-            algorithmExecutor=new IntrestingRow();
+            algorithmExecutor=new InterestingRow();
 
           break;
         case 4:
