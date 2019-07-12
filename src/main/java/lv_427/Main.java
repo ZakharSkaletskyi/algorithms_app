@@ -6,11 +6,11 @@ import lv_427.logic.marian_milian.IntrestingRow;
 import lv_427.logic.marian_milian.ModificationFibonacci;
 import lv_427.logic.kateryna_horokh.PalindromicSubsequence;
 import lv_427.logic.nazar_stasyuk.Fibonacci;
-import lv_427.logic.roman_zahorui.WaysTileFloor;
+import lv_427.logic.rostyslav_khasanov.CountOfWaysToSumToN;
+import lv_427.logic.rostyslav_khasanov.NumAsSumOfTwoOrMorePosInt;
 
 /**
  * Our first task.
- *
  * @author lv-427
  * @version 1.0
  */
@@ -57,14 +57,14 @@ public class Main {
 
       input = scanner.nextLine();
 
-      if (input.equalsIgnoreCase("q")) {
+      if (input.equalsIgnoreCase("q")){
         System.out.println("Bye!");
         break;
       }
 
-      try {
+      try{
         select = Integer.valueOf(input);
-      } catch (Exception c) {
+      }catch (Exception c){
         System.out.println("You have to input integer or \'q\' to exit!!!");
         continue;
       }
@@ -83,9 +83,13 @@ public class Main {
           break;
         case 4:
           break;
-        case 5:
+        case 5: {
+          algorithmExecutor = new CountOfWaysToSumToN();
+        }
           break;
-        case 6:
+        case 6: {
+          algorithmExecutor = new NumAsSumOfTwoOrMorePosInt();
+        }
           break;
         case 7:
           break;
@@ -94,12 +98,10 @@ public class Main {
         case 9:
           break;
         case 10:
-          algorithmExecutor = new PalindromicSubsequence();
           break;
         case 11:
           break;
         case 12:
-          algorithmExecutor = new WaysTileFloor();
           break;
         case 13:
           break;
