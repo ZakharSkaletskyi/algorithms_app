@@ -19,7 +19,6 @@ public class LongestSubsequent implements AlgorithmExecutor {
 
   private static final String INPUT_MESSAGE = "Please send me the numbers: ";
   private static final String OUTPUT_MESSAGE = "Result: ";
-  private static final String FAIL_MESSAGE = "Something wrong(\nTry again: ";
 
   public LongestSubsequent() {
     this.sc = new Scanner(System.in);
@@ -27,13 +26,12 @@ public class LongestSubsequent implements AlgorithmExecutor {
 
   /** The method which doing job us a controller(validate input data and send data to execution). */
   public void execute() {
-    System.out.print(INPUT_MESSAGE);
-    String input = sc.nextLine();
+    String input;
 
-    while (!isInputDataValid(input)) {
-      System.out.print(FAIL_MESSAGE);
+    do {
+      System.out.print(INPUT_MESSAGE);
       input = sc.nextLine();
-    }
+    } while (!isInputDataValid(input));
 
     String[] inputArray = input.split(" ");
     List<Integer> numbers = new ArrayList<Integer>();
@@ -61,7 +59,9 @@ public class LongestSubsequent implements AlgorithmExecutor {
         try {
           Integer.parseInt(s);
         } catch (NumberFormatException e) {
-          System.err.println(e.toString());
+          System.err.println(
+              "Hmm.. Looks like your number - " + "\"" + s + "\""
+                  + " is not a number , or try smaller numbers");
           return false;
         }
       }
@@ -71,8 +71,8 @@ public class LongestSubsequent implements AlgorithmExecutor {
   }
 
   /**
-   * The method of main algorithm which calculate the longest subsequent of numbers
-   * with difference 1.
+   * The method of main algorithm which calculate the longest subsequent of numbers with difference
+   * 1.
    *
    * @param numbers - input List of int with numbers.
    * @return int result of longest subsequent.

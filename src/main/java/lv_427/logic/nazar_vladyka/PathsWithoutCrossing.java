@@ -16,19 +16,22 @@ import lv_427.logic.AlgorithmExecutor;
 public class PathsWithoutCrossing implements AlgorithmExecutor {
   private Scanner sc;
 
-  private static final String INPUT_MESSAGE = "Please send me the number: ";
+  private static final String INPUT_MESSAGE =
+      "Please send me the odd number(bigger that 1 and has less than 52): ";
   private static final String OUTPUT_MESSAGE = "Result: ";
-  private static final String FAIL_MESSAGE = "Something wrong(\nTry again: ";
+
+  public PathsWithoutCrossing() {
+    this.sc = new Scanner(System.in);
+  }
 
   /** The method which doing job us a controller(validate input data and send data to execution). */
   public void execute() {
-    System.out.print(INPUT_MESSAGE);
-    String input = sc.nextLine();
+    String input;
 
-    while (!isInputDataValid(input)) {
-      System.out.print(FAIL_MESSAGE);
+    do {
+      System.out.print(INPUT_MESSAGE);
       input = sc.nextLine();
-    }
+    } while (!isInputDataValid(input));
 
     System.out.print(OUTPUT_MESSAGE + countWays(Integer.parseInt(input)));
   }
@@ -44,12 +47,35 @@ public class PathsWithoutCrossing implements AlgorithmExecutor {
 
     try {
       number = Integer.parseInt(input);
+      if (number > 52) {
+        System.err.println("Hmm.. Looks like your number - "
+                + "\""
+                + number
+                + "\""
+                + " is bigger than 52");
+        return false;
+      }
     } catch (NumberFormatException e) {
-      System.err.println(e.toString());
+      System.err.println(
+          "Hmm.. Looks like your number - "
+              + "\""
+              + input
+              + "\""
+              + " is not a number");
       return false;
     }
 
-    return number >= 1;
+    if (input.length() > 5) {
+      System.err.println("Number has to be smaller than 5 symbols!");
+      return false;
+    }
+
+    if (((number % 2) == 0) && (number >= 1)) {
+      return true;
+    } else {
+      System.err.println("Number has to be odd and bigger than 1");
+      return false;
+    }
   }
 
   /**
