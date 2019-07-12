@@ -94,8 +94,4 @@ public class LongestSubsequent implements TaskExecutor {
 
     return maxSubsequent;
   }
-
-  public static void main(String[] args) {
-    new LongestSubsequent().execute();
-  }
 }
