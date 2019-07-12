@@ -2,7 +2,6 @@ package lv_427.logic.rostyslav_khasanov;
 
 import lv_427.logic.TaskExecutor;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class CountOfWaysToSumToN implements TaskExecutor {
@@ -29,7 +28,6 @@ public class CountOfWaysToSumToN implements TaskExecutor {
     for (int i = 0; i < strArr.length; i++) {
       numbers[i] = Integer.parseInt(strArr[i]);
     }
-    System.out.println(Arrays.toString(numbers));
     System.out.println(countWays(numbers, number, m));
   }
 
@@ -37,9 +35,9 @@ public class CountOfWaysToSumToN implements TaskExecutor {
     int mas[] = arr;
     int count[] = new int[n + 1];
     count[0] = 1;
-    for (int i = 1; i < n; i++) {
-      for (int j = 0; j < m-1; j++) {
-        if (i >= mas[i]) {
+    for (int i = 1; i <= n; i++) {
+      for (int j = 0; j < m; j++) {
+        if (i >= mas[j]) {
           count[i] += count[i - mas[j]];
         }
       }
