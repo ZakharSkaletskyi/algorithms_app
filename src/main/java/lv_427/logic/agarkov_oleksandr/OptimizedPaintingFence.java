@@ -1,17 +1,22 @@
 package lv_427.logic.agarkov_oleksandr;
 
 import java.util.Scanner;
+
 import lv_427.logic.AlgorithmExecutor;
 
 /**
  * Class for finding the number of ways of painting the fence
+ *
  * @author Oleksandr Agarkov
  * @version 1.0
  */
 
 public class OptimizedPaintingFence implements AlgorithmExecutor {
-    /** Scanner for reading from console. */
+    /**
+     * Scanner for reading from console.
+     */
     private Scanner sc;
+
     public OptimizedPaintingFence() {
         this.sc = new Scanner(System.in);
     }
@@ -19,9 +24,10 @@ public class OptimizedPaintingFence implements AlgorithmExecutor {
     /**
      * Method is for execute finding process.
      */
+    @Override
     public void execute() {
         //
-        int n,k;
+        int n, k;
         System.out.println("Enter a number of fence or \'q\' to exit :");
         k = sc.nextInt();
         System.out.println("Enter a number of fence or \'q\' to exit :");
@@ -37,18 +43,17 @@ public class OptimizedPaintingFence implements AlgorithmExecutor {
         int same = 0, diff = k;
 
         // Fill for 2 posts onwards
-        for (int i = 2; i <= n; i++)
-        {
+        for (int i = 2; i <= n; i++) {
             // Current same is same as previous diff
             same = diff;
 
             // We always have k-1 choices for next post
-            diff = (int)total * (k - 1);
+            diff = (int) total * (k - 1);
             diff = diff % mod;
 
             // Total choices till i.
             total = (same + diff) % mod;
         }
-         //return total;
+        //return total;
     }
 }
