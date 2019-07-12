@@ -1,7 +1,7 @@
 package lv_427.logic.nazar_vladyka;
 
 import java.util.Scanner;
-import lv_427.logic.AlgorithmExecutor;
+import lv_427.logic.TaskExecutor;
 
 /**
  * LPaths without crossing.
@@ -13,7 +13,7 @@ import lv_427.logic.AlgorithmExecutor;
  * @author Nazar Vladyka
  * @version 1.0
  */
-public class PathsWithoutCrossing implements AlgorithmExecutor {
+public class PathsWithoutCrossing implements TaskExecutor {
   private Scanner sc;
 
   private static final String INPUT_MESSAGE =
