@@ -4,23 +4,30 @@ import java.util.Scanner;
 
 import lv_427.logic.AlgorithmExecutor;
 
-/** */
+/**
+ * The class counts the number of ways of painting the fence such that at most 2 adjacent posts have
+ * the same color. Reads strings from the console, converts them to integer values, and counts the
+ * result. Implements AlgorithmExecutor interface.
+ *
+ * @see AlgorithmExecutor
+ */
 public class PaintingFence implements AlgorithmExecutor {
 
-  private static final int POSTS_POSITION = 0;
-  private static final int COLORS_POSITION = 1;
+  private static final int POSTS_POS = 0;
+  private static final int COLORS_POS = 1;
   private static final int POSTS_MIN_VAL = 1;
   private static final int COLORS_MIN_VAL = 1;
   private static final int ARRAY_LENGTH = 2;
   private static final String SPLIT_PATTERN = " x ";
   private static final String FAIL_MESSAGE = "Try again!";
-  private static final String INPUT_MESSAGE = "Input : ";
-  private static final String OUTPUT_MESSAGE = "Output : ";
+  private static final String INPUT_MSG = "Input : ";
+  private static final String OUTPUT_MSG = "Output : ";
   private static final String OUTPUT_MSG_MORE = " or even more!";
   private static final String TERMS_OF_USE =
       "Enter amount of posts and amount of colors as p x c. Where p = posts and c = colors."
           + "\nBoth p and c must be positive integers, where p > 0 and c > 0."
-          + "\nExample : 4 x 3";
+          + "\nOutput values greater than 2147483647 are not counted."
+          + "\nExample : 2 x 2";
 
   /** Uses the scanner object to read input data and prints a result to console. */
   public void execute() {
@@ -42,21 +49,29 @@ public class PaintingFence implements AlgorithmExecutor {
       }
     }
 
-    String inputMsg = INPUT_MESSAGE + postsAmount + SPLIT_PATTERN + colorAmount;
+    String inputMsg = INPUT_MSG + postsAmount + SPLIT_PATTERN + colorAmount;
     System.out.println(inputMsg);
     long amountOfWays = countWays(postsAmount, colorAmount);
-    String outputStr = OUTPUT_MESSAGE + amountOfWays;
+    String outputStr = OUTPUT_MSG + amountOfWays;
     if (amountOfWays == Integer.MAX_VALUE) {
       outputStr += OUTPUT_MSG_MORE;
     }
     System.out.println(outputStr);
   }
+  /**
+   * Implementation of the counting algorithm of ways paint the fence such that at most 2 adjacent
+   * posts have the same color.
+   *
+   * @param posts - amount of given posts
+   * @param colors - amount of given colors.
+   * @return - number of ways to paint the fence.
+   */
 
   private long countWays(int posts, int colors) {
     long[] subProblems = new long[posts + 1];
     subProblems[0] = 0;
     subProblems[1] = colors;
-    long sameColor = 0;
+    long sameColor;
     long diffColor = colors;
     for (int i = 2; i <= posts; i++) {
       sameColor = diffColor;
@@ -81,11 +96,11 @@ public class PaintingFence implements AlgorithmExecutor {
     if (strDataInLowCase.contains(SPLIT_PATTERN)) {
       String[] sizeParts = strDataInLowCase.split(SPLIT_PATTERN);
       int[] sizeArray = new int[ARRAY_LENGTH];
-      int widthValue = Integer.valueOf(sizeParts[POSTS_POSITION]);
-      int heightValue = Integer.valueOf(sizeParts[COLORS_POSITION]);
+      int widthValue = Integer.valueOf(sizeParts[POSTS_POS]);
+      int heightValue = Integer.valueOf(sizeParts[COLORS_POS]);
       if (widthValue >= POSTS_MIN_VAL && heightValue >= COLORS_MIN_VAL) {
-        sizeArray[POSTS_POSITION] = widthValue;
-        sizeArray[COLORS_POSITION] = heightValue;
+        sizeArray[POSTS_POS] = widthValue;
+        sizeArray[COLORS_POS] = heightValue;
         return sizeArray;
       }
     }
