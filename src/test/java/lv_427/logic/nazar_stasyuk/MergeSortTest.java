@@ -1,4 +1,4 @@
-package lv_427;
+package lv_427.logic.nazar_stasyuk;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -10,11 +10,11 @@ import org.junit.runner.RunWith;
 import static org.junit.Assert.*;
 
 @RunWith(Arquillian.class)
-public class TaskFactoryTest {
+public class MergeSortTest {
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
-                .addClass(TaskFactory.class)
+                .addClass(MergeSort.class)
                 .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
     }
 
