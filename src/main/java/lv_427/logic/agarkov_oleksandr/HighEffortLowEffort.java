@@ -1,7 +1,7 @@
 package lv_427.logic.agarkov_oleksandr;
 
 import java.util.Scanner;
-import lv_427.logic.AlgorithmExecutor;
+import lv_427.logic.TaskExecutor;
 
 /**
  * Class to find out for each day how much you could either perform a high effort tasks or a low effort tasks.
@@ -9,7 +9,7 @@ import lv_427.logic.AlgorithmExecutor;
  * @author Oleksandr Agarkov
  * @version 1.0
  */
-public class HighEffortLowEffort implements AlgorithmExecutor {
+public class HighEffortLowEffort implements TaskExecutor {
     /**
      * Scanner for reading from console.
      */
