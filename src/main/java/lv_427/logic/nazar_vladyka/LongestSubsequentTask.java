@@ -16,6 +16,7 @@ import java.util.Scanner;
  */
 public class LongestSubsequent implements TaskExecutor {
   private Scanner sc;
+  private final static int DIFFERENCE = 1;
 
   public LongestSubsequent() {
     this.sc = new Scanner(System.in);
@@ -82,7 +83,7 @@ public class LongestSubsequent implements TaskExecutor {
     int currentSubsequent = 1;
 
     for (int i = 0; i < numbers.size() - 1; i++) {
-      if ((numbers.get(i + 1) - numbers.get(i)) == 1) {
+      if (Math.abs((numbers.get(i + 1) - numbers.get(i))) == DIFFERENCE) {
         currentSubsequent++;
       } else {
         maxSubsequent = (currentSubsequent > maxSubsequent) ? currentSubsequent : maxSubsequent;
