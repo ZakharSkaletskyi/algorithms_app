@@ -68,8 +68,8 @@ public class CountOfWaysToSumToN implements TaskExecutor {
    * @param m is length of array numbers.
    * @param n is one entered positive number
    * @param arr is array of numbers.
-   * @return returns a number that means how many ways we have to represent one number with a given
-   *     array of numbers integers.
+   * @return returns a number that means how many ways we have to represent one number with a given array
+   * of numbers integers.
    */
   public int countWays(int[] arr, int n, int m) {
     int mas[] = arr;
