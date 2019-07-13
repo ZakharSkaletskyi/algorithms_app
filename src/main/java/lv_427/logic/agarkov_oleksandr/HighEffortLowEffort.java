@@ -31,10 +31,7 @@ public class HighEffortLowEffort implements TaskExecutor {
     /**
      * Method is for execute finding process.
      */
-    @Override
     public void execute() {
-
-
         /**
          * @param days - quantity of days
          * @param high - range of max tasks
@@ -81,7 +78,7 @@ public class HighEffortLowEffort implements TaskExecutor {
                 System.out.println(task_dp[days]);
             }
         } catch (Exception ex) {
-            System.out.println("You have to input an integer\n" + ex.msg() );
+            System.out.println("You have to input an integer\n" );
         }
 
 
