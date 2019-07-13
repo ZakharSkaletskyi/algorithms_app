@@ -2,7 +2,7 @@ package lv_427.logic.kateryna_horokh;
 
 import java.util.Scanner;
 
-import lv_427.exceptions.WrongLengthOfString;
+import lv_427.exceptions.WrongInputException;
 import lv_427.logic.TaskExecutor;
 
 import static lv_427.exceptions.WrongInputException.WRONG_LENGTH;
@@ -23,28 +23,26 @@ public class PalindromicSubsequence implements TaskExecutor {
 
   /** Method is for execute finding process. */
   public void execute() {
+    String input;
 
-    System.out.println("Please enter the word: ");
+    do {
+      System.out.print("Enter word: ");
+      input = sc.nextLine();
+    } while (!isInputValid(input));
 
-    boolean isWrongInput = true;
+    System.out.println("Result: " + findPalindromLength(input));
+  }
 
-    while (isWrongInput) {
+  public boolean isInputValid(String input) {
+    char[] chars = input.toCharArray();
 
-      String input = sc.nextLine();
-
-      char[] chars = input.toCharArray();
-
-      if (chars.length > 100) {
-        throw new WrongInputException(WRONG_LENGTH);
-      }
-
-      if (isWrongInput == false) {
-        System.out.println("Try again.");
-      } else {
-        System.out.println("Result: " + findPalindromLength(input));
-        break;
-      }
+    if (chars.length == 0) {
+      return false;
     }
+    if (chars.length > 100) {
+      throw new WrongInputException(WRONG_LENGTH);
+    }
+    return true;
   }
 
   /**
@@ -55,6 +53,7 @@ public class PalindromicSubsequence implements TaskExecutor {
   public int findPalindromLength(String input) {
 
     char[] chars = input.toCharArray();
+
     int[][] LP = new int[chars.length][chars.length];
 
     // LP[i][j] - length of palindrome from i index to j index
