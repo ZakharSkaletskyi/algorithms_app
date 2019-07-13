@@ -81,6 +81,7 @@ public class TaskFactory {
                 taskExecutor = new PalindromicSubsequence();
                 break;
             case 11:
+                taskExecutor = new FriendPairs();
                 break;
             case 12:
                 taskExecutor = new WaysTileFloor();
