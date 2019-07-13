@@ -17,9 +17,6 @@ import java.util.Scanner;
 public class LongestSubsequent implements TaskExecutor {
   private Scanner sc;
 
-  private static final String INPUT_MESSAGE = "Please send me the numbers: ";
-  private static final String OUTPUT_MESSAGE = "Result: ";
-
   public LongestSubsequent() {
     this.sc = new Scanner(System.in);
   }
@@ -29,7 +26,7 @@ public class LongestSubsequent implements TaskExecutor {
     String input;
 
     do {
-      System.out.print(INPUT_MESSAGE);
+      System.out.print("Please send me the numbers using space between them like \"1 2 3\": ");
       input = sc.nextLine();
     } while (!isInputDataValid(input));
 
@@ -40,7 +37,7 @@ public class LongestSubsequent implements TaskExecutor {
       numbers.add(Integer.parseInt(s));
     }
 
-    System.out.print(OUTPUT_MESSAGE + find(numbers));
+    System.out.print("Result: " + find(numbers));
   }
 
   /**
@@ -60,7 +57,10 @@ public class LongestSubsequent implements TaskExecutor {
           Integer.parseInt(s);
         } catch (NumberFormatException e) {
           System.err.println(
-              "Hmm.. Looks like your number - " + "\"" + s + "\""
+              "Hmm.. Looks like your number - "
+                  + "\""
+                  + s
+                  + "\""
                   + " is not a number , or try smaller numbers");
           return false;
         }

@@ -17,7 +17,7 @@ public class PathsWithoutCrossing implements TaskExecutor {
   private Scanner sc;
 
   private static final String INPUT_MESSAGE =
-      "Please send me the odd number(bigger that 1 and has less than 52): ";
+      "Please send me the odd number(bigger that 0 and less than 52): ";
   private static final String OUTPUT_MESSAGE = "Result: ";
 
   public PathsWithoutCrossing() {
@@ -42,38 +42,31 @@ public class PathsWithoutCrossing implements TaskExecutor {
    * @param input - input string data.
    * @return boolean value which shows us if data is valid.
    */
-  private boolean isInputDataValid(String input) {
+  public boolean isInputDataValid(String input) {
     int number;
 
     try {
       number = Integer.parseInt(input);
-      if (number > 52) {
-        System.err.println("Hmm.. Looks like your number - "
-                + "\""
-                + number
-                + "\""
-                + " is bigger than 52");
-        return false;
-      }
     } catch (NumberFormatException e) {
       System.err.println(
-          "Hmm.. Looks like your number - "
-              + "\""
-              + input
-              + "\""
-              + " is not a number");
+          "Hmm.. Looks like your number - " + "\"" + input + "\"" + " is not a number");
       return false;
     }
 
-    if (input.length() > 5) {
-      System.err.println("Number has to be smaller than 5 symbols!");
+    if (number <= 0) {
+      System.err.println(
+              "Hmm.. Looks like your number - " + "\"" + number + "\"" + " is smaller than 0");
+      return false;
+    } else if (number > 52) {
+      System.err.println(
+              "Hmm.. Looks like your number - " + "\"" + number + "\"" + " is bigger than 52");
       return false;
     }
 
-    if (((number % 2) == 0) && (number >= 1)) {
+    if (((number % 2) == 0)) {
       return true;
     } else {
-      System.err.println("Number has to be odd and bigger than 1");
+      System.err.println("Number has to be odd");
       return false;
     }
   }
