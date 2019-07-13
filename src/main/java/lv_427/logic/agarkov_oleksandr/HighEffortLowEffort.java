@@ -21,17 +21,19 @@ public class HighEffortLowEffort implements TaskExecutor {
     }
 
     /**
+     * @return - Returns the maximum among the 2 numbers
+     */
+    static int max ( int x, int y)
+    {
+        return (x > y ? x : y);
+    }
+
+    /**
      * Method is for execute finding process.
      */
     @Override
     public void execute() {
-        /**
-         * @return - Returns the maximum among the 2 numbers
-         */
-        static int max ( int x, int y)
-        {
-            return (x > y ? x : y);
-        }
+
 
         /**
          * @param days - quantity of days
@@ -54,33 +56,34 @@ public class HighEffortLowEffort implements TaskExecutor {
             for (int i = 0; i < days; i++) {
                 low[i] = sc.nextInt();
             }
+            /**
+             * An array task_dp that stores the maximum
+             * task done
+             */
+            int[] task_dp = new int[days + 1];
+
+            /**
+             * If n = 0, no solution exists
+             */
+            task_dp[0] = 0;
+
+            /** If n = 1, high effort task on that day will
+             *  be the solution
+             */
+            task_dp[1] = high[0];
+
+            /** Fill the entire array determining which
+             * task to choose on day i
+             */
+            for (int i = 2; i <= days; i++) {
+                task_dp[i] = max(high[i - 1] + task_dp[i - 2],
+                        low[i - 1] + task_dp[i - 1]);
+                System.out.println(task_dp[days]);
+            }
         } catch (Exception ex) {
             System.out.println("You have to input an integer\n" + ex.msg() );
         }
 
-        /**
-         * An array task_dp that stores the maximum
-         * task done
-         */
-        int[] task_dp = new int[days + 1];
 
-        /**
-         * If n = 0, no solution exists
-         */
-        task_dp[0] = 0;
-
-        /** If n = 1, high effort task on that day will
-         *  be the solution
-         */
-        task_dp[1] = high[0];
-
-        /** Fill the entire array determining which
-         * task to choose on day i
-         */
-        for (int i = 2; i <= days; i++) {
-            task_dp[i] = max(high[i - 1] + task_dp[i - 2],
-                    low[i - 1] + task_dp[i - 1]);
-            System.out.println(task_dp[days]);
-        }
     }
 }
