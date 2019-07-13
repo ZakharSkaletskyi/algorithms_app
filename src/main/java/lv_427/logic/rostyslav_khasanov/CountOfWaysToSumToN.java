@@ -1,58 +1,87 @@
 package lv_427.logic.rostyslav_khasanov;
 
-import java.io.IOException;
 import lv_427.logic.TaskExecutor;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.Arrays;
+import java.util.Scanner;
 
+/**
+ * Ways to sum to N using array elements with repetition
+ *
+ * <p>The goal: To find how many ways we have to represent one number with a given array of numbers
+ *
+ * @author Rostyslav Khasanov
+ * @version 1.0
+ */
 public class CountOfWaysToSumToN implements TaskExecutor {
 
+  /** Executable method. */
   public void execute() {
-
-    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    boolean check = true;
+    Scanner sc = new Scanner(System.in);
+    String str;
+    int number = 0;
+    /** The length of array numbers */
+    int m;
+    /** Array for string elements */
     String strArr[];
+    /** Array with integers, which consist elements of strArr after parse */
     int numbers[];
-    String str = "";
-    int num = 0;
-    int sum = 0;
-    int counter = 0;
 
     System.out.println("Enter array of numbers like '1 5 2 12 1': \n");
-    try {
-      str = br.readLine();
-    } catch (IOException e) {
-      e.printStackTrace();
+    for (; ; ) {
+      str = sc.nextLine();
+      strArr = str.split(" ");
+      numbers = new int[strArr.length];
+      try {
+        for (int i = 0; i < strArr.length; i++) {
+          numbers[i] = Integer.parseInt(strArr[i]);
+        }
+        check = false;
+      } catch (Exception e) {
+        System.out.println("Only numbers is array like '1 22 4 3' !");
+      }
+      if (check == false) {
+        break;
+      }
     }
-    strArr = str.split(" ");
-    numbers = new int[strArr.length];
-    for (int i = 0; i < strArr.length; i++) {
-      numbers[i] = Integer.parseInt(strArr[i]);
-    }
-    System.out.println(Arrays.toString(numbers));
-    try {
-      num = Integer.parseInt(br.readLine());
-    } catch (IOException e) {
-      e.printStackTrace();
+    check = true;
+    m = numbers.length;
+    System.out.println("Enter positive number :");
+    for (; ; ) {
+      try {
+        number = Integer.parseInt(sc.nextLine());
+        check = false;
+      } catch (Exception e) {
+        System.out.println("Enter just one positive number!");
+      }
+      if (check == false) {
+        break;
+      }
     }
 
-    for (int i = 0; i < numbers.length; i++) {
-      while (sum < num) {
-        sum += numbers[i];
-        if (sum == num) {
-          counter++;
+    System.out.println(countWays(numbers, number, m));
+  }
+
+  /**
+   * Method is for find how many ways we have to represent one number with a given array of numbers
+   *
+   * @param m is length of array numbers.
+   * @param n is one entered positive number
+   * @param arr is array of numbers.
+   * @return returns a number that means how many ways we have to represent one number with a given array
+   * of numbers integers.
+   */
+  public int countWays(int[] arr, int n, int m) {
+    int mas[] = arr;
+    int count[] = new int[n + 1];
+    count[0] = 1;
+    for (int i = 1; i <= n; i++) {
+      for (int j = 0; j < m; j++) {
+        if (i >= mas[j]) {
+          count[i] += count[i - mas[j]];
         }
       }
-      while (sum < num) {
-      }
-      //        for (int j = 1; j < numbers.length; j++) {
-      //            if (numbers[i] + j == num) {
-      //                counter++;
-      //            }
-      //        }
-      sum = 0;
     }
-    System.out.println(counter);
+    return count[n];
   }
 }
