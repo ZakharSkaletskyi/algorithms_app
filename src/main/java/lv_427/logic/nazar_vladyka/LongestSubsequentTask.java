@@ -29,6 +29,6 @@ public class LongestSubsequentTask implements TaskExecutor {
       input = sc.nextLine();
     } while (!executor.isInputDataValid(input));
 
-    System.out.print("Result: " + executor.find(input));
+    System.out.println("Result: " + executor.find(input));
   }
 }
