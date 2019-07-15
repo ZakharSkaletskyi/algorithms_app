@@ -21,16 +21,16 @@ public class StringParser {
         String strDataInLowCase = strData.toLowerCase();
         if (strDataInLowCase.contains(SPLIT_PATTERN)) {
 
-            String[] sizeParts = strDataInLowCase.split(SPLIT_PATTERN);
-            int[] sizeArray = new int[2];
+            String[] integers = strDataInLowCase.split(SPLIT_PATTERN);
+            int[] arr = new int[2];
 
-            int widthValue = Integer.valueOf(sizeParts[0]);
-            int heightValue = Integer.valueOf(sizeParts[1]);
+            int firstVal = Integer.valueOf(integers[0]);
+            int secondVal = Integer.valueOf(integers[1]);
 
-            if (widthValue >= firstMin && heightValue >= secondMin) {
-                sizeArray[0] = widthValue;
-                sizeArray[1] = heightValue;
-                return sizeArray;
+            if (firstVal >= firstMin && secondVal >= secondMin) {
+                arr[0] = firstVal;
+                arr[1] = secondVal;
+                return arr;
             }
         }
         return null;
