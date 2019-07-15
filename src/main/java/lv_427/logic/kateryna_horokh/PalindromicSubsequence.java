@@ -66,7 +66,7 @@ public class PalindromicSubsequence implements TaskExecutor {
    *
    * @param input - a string which have to check how many symbols has the biggest palindrome which
    *     is included.
-   * @return number of length the biggest palindrome.
+   * @return number of the biggest length of palindrome.
    */
   private int findPalindromLength(String input) {
 
