@@ -13,11 +13,8 @@ import lv_427.logic.TaskExecutor;
  */
 public class PaintingFence implements TaskExecutor {
 
-  private static final int POSTS_POS = 0;
-  private static final int COLORS_POS = 1;
   private static final int POSTS_MIN_VAL = 1;
   private static final int COLORS_MIN_VAL = 1;
-  private static final int ARRAY_LENGTH = 2;
   private static final String SPLIT_PATTERN = " x ";
   private static final String FAIL_MESSAGE = "Try again!";
   private static final String INPUT_MSG = "Input : ";
@@ -112,14 +109,14 @@ public class PaintingFence implements TaskExecutor {
     if (strDataInLowCase.contains(SPLIT_PATTERN)) {
 
       String[] sizeParts = strDataInLowCase.split(SPLIT_PATTERN);
-      int[] sizeArray = new int[ARRAY_LENGTH];
+      int[] sizeArray = new int[2];
 
-      int widthValue = Integer.valueOf(sizeParts[POSTS_POS]);
-      int heightValue = Integer.valueOf(sizeParts[COLORS_POS]);
+      int widthValue = Integer.valueOf(sizeParts[0]);
+      int heightValue = Integer.valueOf(sizeParts[1]);
 
       if (widthValue >= POSTS_MIN_VAL && heightValue >= COLORS_MIN_VAL) {
-        sizeArray[POSTS_POS] = widthValue;
-        sizeArray[COLORS_POS] = heightValue;
+        sizeArray[0] = widthValue;
+        sizeArray[1] = heightValue;
         return sizeArray;
       }
     }
