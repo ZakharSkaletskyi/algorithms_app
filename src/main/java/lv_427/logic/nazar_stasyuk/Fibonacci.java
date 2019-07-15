@@ -1,16 +1,16 @@
 package lv_427.logic.nazar_stasyuk;
 
-import lv_427.logic.TaskExecutor;
-
 import java.util.Scanner;
+
+
+import lv_427.logic.AlgorithmExecutor;
 
 /**
  * Class for finding number in Fibonacci sequence by position.
- *
  * @author Nazar Stasyuk
  * @version 1.0
  */
-public class Fibonacci implements TaskExecutor {
+public class Fibonacci implements AlgorithmExecutor {
 
   private Scanner sc;
 
@@ -18,7 +18,9 @@ public class Fibonacci implements TaskExecutor {
     this.sc = new Scanner(System.in);
   }
 
-  /** Method is for execute finding process. */
+  /**
+   * Method is for execute finding process.
+   */
   public void execute() {
 
     int position;
@@ -57,12 +59,6 @@ public class Fibonacci implements TaskExecutor {
     }
   }
 
-  /**
-   * Method is for find number by position.
-   *
-   * @param position is position of number that you are finding.
-   * @return return number by position or -1 if number is to high.
-   */
   private long findNumberByPosition(int position) {
     if ((position == 0) || (position == 1)) {
       return 1;
