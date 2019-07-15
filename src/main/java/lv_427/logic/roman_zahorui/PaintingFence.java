@@ -2,6 +2,7 @@ package lv_427.logic.roman_zahorui;
 
 import java.util.Scanner;
 
+import lv_427.exceptions.IncorrectValueException;
 import lv_427.logic.TaskExecutor;
 
 /**
@@ -13,14 +14,9 @@ import lv_427.logic.TaskExecutor;
  */
 public class PaintingFence implements TaskExecutor {
 
-  private static final int POSTS_POS = 0;
-  private static final int COLORS_POS = 1;
   private static final int POSTS_MIN_VAL = 1;
   private static final int COLORS_MIN_VAL = 1;
-  private static final int ARRAY_LENGTH = 2;
-  private static final String SPLIT_PATTERN = " x ";
   private static final String FAIL_MESSAGE = "Try again!";
-  private static final String INPUT_MSG = "Input : ";
   private static final String OUTPUT_MSG = "Output : ";
   private static final String OUTPUT_MSG_MORE = " or even more!";
   private static final String TERMS_OF_USE =
@@ -46,20 +42,22 @@ public class PaintingFence implements TaskExecutor {
     int colorAmount = 0;
     while (postsAmount <= 0 && colorAmount <= 0) {
       try {
-        int[] amounts = parseStringToSize(sc.nextLine());
+        int[] amounts = StringParser.parseStringToSize(sc.nextLine());
         if (null == amounts) {
           System.out.println(FAIL_MESSAGE);
         } else {
           postsAmount = amounts[0];
           colorAmount = amounts[1];
+          if (postsAmount < POSTS_MIN_VAL || colorAmount < COLORS_MIN_VAL) {
+            System.out.println(FAIL_MESSAGE);
+            postsAmount = 0;
+            colorAmount = 0;
+          }
         }
       } catch (NumberFormatException e) {
         System.out.println(FAIL_MESSAGE);
       }
     }
-
-    String inputMsg = INPUT_MSG + postsAmount + SPLIT_PATTERN + colorAmount;
-    System.out.println(inputMsg);
 
     long amountOfWays = countWays(postsAmount, colorAmount);
     String outputStr = OUTPUT_MSG + amountOfWays;
@@ -79,7 +77,10 @@ public class PaintingFence implements TaskExecutor {
    * @param colors - amount of given colors.
    * @return - number of ways to paint the fence.
    */
-  public long countWays(int posts, int colors) {
+  private long countWays(int posts, int colors) {
+    if (posts < 1 || colors < 1) {
+      throw new IncorrectValueException("An input amount of posts or colors can't be less then 1.");
+    }
     long[] subProblems = new long[posts + 1];
     subProblems[0] = 0;
     subProblems[1] = colors;
@@ -97,32 +98,5 @@ public class PaintingFence implements TaskExecutor {
       }
     }
     return subProblems[posts];
-  }
-
-  /**
-   * The method tries to extract data from an input string.
-   *
-   * @param strData - input string data.
-   * @return - an array of integers with length == 2. Represented posts amount at position 0 and
-   *     сolors amount at position 1 or null if strData can't matches the correct string.
-   */
-  public int[] parseStringToSize(String strData) throws NumberFormatException {
-
-    String strDataInLowCase = strData.toLowerCase();
-    if (strDataInLowCase.contains(SPLIT_PATTERN)) {
-
-      String[] sizeParts = strDataInLowCase.split(SPLIT_PATTERN);
-      int[] sizeArray = new int[ARRAY_LENGTH];
-
-      int widthValue = Integer.valueOf(sizeParts[POSTS_POS]);
-      int heightValue = Integer.valueOf(sizeParts[COLORS_POS]);
-
-      if (widthValue >= POSTS_MIN_VAL && heightValue >= COLORS_MIN_VAL) {
-        sizeArray[POSTS_POS] = widthValue;
-        sizeArray[COLORS_POS] = heightValue;
-        return sizeArray;
-      }
-    }
-    return null;
   }
 }

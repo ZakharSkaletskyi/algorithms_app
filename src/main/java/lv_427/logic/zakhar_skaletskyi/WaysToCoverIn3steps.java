@@ -3,7 +3,6 @@ package lv_427.logic.zakhar_skaletskyi;
 import java.util.Scanner;
 
 import lv_427.logic.TaskExecutor;
-
 public class WaysToCoverIn3steps implements TaskExecutor{
 	private Scanner sc;
 	public static int findStep(int n) 
@@ -21,7 +20,6 @@ public class WaysToCoverIn3steps implements TaskExecutor{
 	public WaysToCoverIn3steps() {
 		sc = new Scanner(System.in);
 	}
-
 	public void execute() {
 		int distance = getDistance(sc);
 		System.out.println("Total number of ways to cover the distance = " + findStep(distance));
@@ -47,6 +45,4 @@ public class WaysToCoverIn3steps implements TaskExecutor{
 		}
 		return distance;
 	}
-	
-	
 }

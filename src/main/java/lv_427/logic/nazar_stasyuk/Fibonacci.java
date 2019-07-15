@@ -1,5 +1,6 @@
 package lv_427.logic.nazar_stasyuk;
 
+import lv_427.exceptions.BadPositionOfFibonacciSequence;
 import lv_427.logic.TaskExecutor;
 
 import java.util.Scanner;
@@ -35,8 +36,8 @@ public class Fibonacci implements TaskExecutor {
       try {
         position = Integer.valueOf(input);
 
-        if (position < 0) {
-          System.out.println("Position has to be zero or positive!");
+        if (position <= 0) {
+          System.out.println("Position has to be positive!");
           continue;
         }
 
@@ -62,9 +63,14 @@ public class Fibonacci implements TaskExecutor {
    *
    * @param position is position of number that you are finding.
    * @return return number by position or -1 if number is to high.
+   * @exception BadPositionOfFibonacciSequence position has to be only positive
    */
   private long findNumberByPosition(int position) {
-    if ((position == 0) || (position == 1)) {
+    if (position <= 0) {
+      throw new BadPositionOfFibonacciSequence(
+          "Position has to be positive! In your case position is " + position);
+    }
+    if ((position == 1) || (position == 2)) {
       return 1;
     }
     long previousNumber = 1;
@@ -76,8 +82,6 @@ public class Fibonacci implements TaskExecutor {
         return nextNumber;
       }
       if (nextNumber < 0) {
-        // throw new ToHighPositionInFibonacciSequenceException("Position " + position + " is to
-        // high to find the number in sequence");
         System.out.println("Position " + position + " is to high to find the number in sequence");
         return -1;
       }
