@@ -8,18 +8,16 @@ package lv_427.logic.nazar_vladyka;
  */
 public class PathsWithoutCrossingTaskExecutor {
   /**
-   * The method check if incoming data is valid.
+   * The method check if incoming data is valid. Throw a NumberFormatException if input data is
+   * invalid.
    *
    * @param input - input string data.
-   * @return boolean value which shows us if data is valid else throw an NumberFormatException
    */
-  public boolean isInputDataValid(String input) {
-    int number;
-
-    number = Integer.parseInt(input);
+  public void isInputDataValid(String input) {
+    int number = Integer.parseInt(input);
 
     if (number <= 0) {
-      throw new NumberFormatException("Number is smaller than 1");
+      throw new NumberFormatException("Number has to be positive");
     } else if (number > 52) {
       throw new NumberFormatException("Number is bigger than 52");
     }
@@ -27,8 +25,6 @@ public class PathsWithoutCrossingTaskExecutor {
     if ((number % 2) == 1) {
       throw new NumberFormatException("Number has to be even");
     }
-
-    return true;
   }
 
   /**
