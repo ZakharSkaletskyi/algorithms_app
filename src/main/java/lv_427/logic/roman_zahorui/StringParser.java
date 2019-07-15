@@ -13,7 +13,7 @@ public class StringParser {
    * @return an array of integers with length == 2 or null if strData can't matches the correct
    *     string.
    */
-  protected static int[] parseStringToSize(String strData, int firstMin, int secondMin)
+  protected static int[] parseStringToSize(String strData)
       throws NumberFormatException {
 
     String strDataInLowCase = strData.toLowerCase();
@@ -25,11 +25,9 @@ public class StringParser {
       int firstVal = Integer.valueOf(integers[0]);
       int secondVal = Integer.valueOf(integers[1]);
 
-      if (firstVal >= firstMin && secondVal >= secondMin) {
-        arr[0] = firstVal;
-        arr[1] = secondVal;
-        return arr;
-      }
+      arr[0] = firstVal;
+      arr[1] = secondVal;
+      return arr;
     }
     return null;
   }
