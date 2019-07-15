@@ -1,11 +1,11 @@
 package lv_427.logic.nazar_stasyuk;
 
+import lv_427.exceptions.BadSizeOfArrayException;
+import lv_427.logic.TaskExecutor;
+
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
-
-import lv_427.exceptions.BadSizeOfArrayException;
-import lv_427.logic.TaskExecutor;
 
 /**
  * Description: class is for demo how merge sort works(It shows details when you input size 16 or
@@ -24,7 +24,7 @@ public class MergeSort implements TaskExecutor {
     this.sc = new Scanner(System.in);
   }
 
-  /** Executable method.*/
+  /** Executable method. */
   public void execute() {
     String input;
     while (true) {
