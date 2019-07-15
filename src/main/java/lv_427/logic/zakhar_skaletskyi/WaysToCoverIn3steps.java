@@ -5,17 +5,17 @@ import java.util.Scanner;
 import lv_427.logic.TaskExecutor;
 public class WaysToCoverIn3steps implements TaskExecutor{
 	private Scanner sc;
-	private int findStep(int n) 
-    { 
-        if (n == 1 || n == 0)  
-            return 1; 
-        else if (n == 2)  
-            return 2; 
-       
+	private int findStep(int n)
+    {
+        if (n == 1 || n == 0)
+            return 1;
+        else if (n == 2)
+            return 2;
+
         else
-            return findStep(n - 3) +  
-                   findStep(n - 2) + 
-                   findStep(n - 1);     
+            return findStep(n - 3) +
+                   findStep(n - 2) +
+                   findStep(n - 1);
     }
 	public WaysToCoverIn3steps() {
 		sc = new Scanner(System.in);
@@ -25,8 +25,8 @@ public class WaysToCoverIn3steps implements TaskExecutor{
 		System.out.println("Total number of ways to cover the distance = " + findStep(distance));
 		System.out.println("To return to menu just press Enter");
 		sc.nextLine();
-	} 
-	
+	}
+
 	private int getDistance(Scanner sc) {
 		boolean check = true;
 		int distance = 0;

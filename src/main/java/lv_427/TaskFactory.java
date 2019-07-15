@@ -105,6 +105,7 @@ public class TaskFactory {
         taskExecutor = new CountingSorting();
         break;
       case 17:
+        taskExecutor = new QuickSort();
         break;
       case 18:
         taskExecutor = new BucketSort();
