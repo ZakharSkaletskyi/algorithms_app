@@ -24,7 +24,6 @@ public class OptimizedPaintingFence implements TaskExecutor {
     /**
      * Method is for execute finding process.
      */
-    @Override
     public void execute() {
         //
         int n, k;

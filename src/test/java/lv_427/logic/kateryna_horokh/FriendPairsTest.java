@@ -1,11 +1,14 @@
 package lv_427.logic.kateryna_horokh;
 
+import mockit.Deencapsulation;
+import mockit.Tested;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 public class FriendPairsTest {
 
+  @Tested
   private FriendPairs friendPairs;
 
   @Before
@@ -15,16 +18,13 @@ public class FriendPairsTest {
 
   @Test
   public void shouldReturn4ConnectionsWhenInputIs3Friends() {
-    Assert.assertEquals(4, friendPairs.findNumberOfWays("3"));
-  }
-
-  @Test
-  public void passingBigNumber() {
-    Assert.assertEquals(0, friendPairs.findNumberOfWays("500"));
+    int countOfWays = Deencapsulation.invoke("friendPairs", "findNumberOfWays", "3");
+    Assert.assertEquals(4, countOfWays);
   }
 
   @Test
   public void passingMaxNumberWhichWillReturnValidResult() {
-    Assert.assertEquals(476894976, friendPairs.findNumberOfWays("27"));
+    int countOfWays = Deencapsulation.invoke("friendPairs", "findNumberOfWays", "27");
+    Assert.assertEquals(476894976, countOfWays);
   }
 }

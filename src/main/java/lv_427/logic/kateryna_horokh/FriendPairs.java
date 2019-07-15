@@ -49,7 +49,7 @@ public class FriendPairs implements TaskExecutor {
    * @param input - number which have to check how many ways
    * @return number of ways in which friends can remain single or can be paired up.
    */
-  public int findNumberOfWays(String input) {
+  private int findNumberOfWays(String input) {
 
     int resultInput = Integer.parseInt(input);
 
