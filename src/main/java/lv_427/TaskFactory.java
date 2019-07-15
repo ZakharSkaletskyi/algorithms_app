@@ -3,7 +3,6 @@ package lv_427;
 import lv_427.logic.TaskExecutor;
 import lv_427.logic.kateryna_horokh.FriendPairs;
 import lv_427.logic.kateryna_horokh.PalindromicSubsequence;
-import lv_427.logic.marian_milian.IntrestingRow;
 import lv_427.logic.marian_milian.ModificationFibonacci;
 import lv_427.logic.nazar_stasyuk.Fibonacci;
 import lv_427.logic.nazar_stasyuk.MergeSort;
