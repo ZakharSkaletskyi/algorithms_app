@@ -35,7 +35,7 @@ public class InsertionSorting implements TaskExecutor {
 
       int arrayForSorting[] = new int[amountOfElements];
       System.out.println(
-          "Input elements of your array, please use \'Enter\' key after every your input ");
+              "Input elements of your array, please use \'Enter\' key after every your input ");
 
       for (int i = 0; i < amountOfElements; ) {
         try {
@@ -47,12 +47,13 @@ public class InsertionSorting implements TaskExecutor {
       }
 
       System.out.println(
-          "Not sorted array: "
-              + Arrays.toString(arrayForSorting)
-              + "\n"
-              + "Sorted array: "
-              + Arrays.toString(insertionSorting(arrayForSorting))
-              + "Do you want to quit? Press \'q\', else press any key...");
+              "Not sorted array: "
+                      + Arrays.toString(arrayForSorting)
+                      + "\n"
+                      + "Sorted array: "
+                      + Arrays.toString(insertionSorting(arrayForSorting))
+                      + "\n"
+                      + "Do you want to quit? Press \'q\', else press any key...");
       String agreement = scanner.next();
       if (agreement.equalsIgnoreCase("q")) {
         break;
