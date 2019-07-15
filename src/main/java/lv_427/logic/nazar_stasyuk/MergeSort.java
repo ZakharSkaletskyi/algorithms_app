@@ -57,6 +57,7 @@ public class MergeSort implements TaskExecutor {
    *
    * @param array - is an array that will be sorted
    * @param size - is a size of sorted array
+   * @return sorted array
    */
   private int[] mergeSort(int[] array, int size) {
     if (size < 2) {
