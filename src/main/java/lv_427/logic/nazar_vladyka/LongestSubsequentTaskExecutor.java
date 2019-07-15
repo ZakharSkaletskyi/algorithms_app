@@ -13,23 +13,16 @@ public class LongestSubsequentTaskExecutor {
   private static final int DIFFERENCE = 1;
 
   /**
-   * The method check if incoming data is valid.
+   * The method check if incoming data is valid. Throw NumberFormatException if data is invalid
    *
    * @param input - input string data.
-   * @return boolean value which shows us if data is valid.
    */
-  public boolean isInputDataValid(String input) {
+  public void validateData(String input) {
     String[] inputStringArray = input.split(" ");
 
-    if (inputStringArray.length == 0) {
-      throw new NumberFormatException("The input is empty");
-    } else {
-      for (String s : inputStringArray) {
-        Integer.parseInt(s);
-      }
+    for (String s : inputStringArray) {
+      Integer.parseInt(s);
     }
-
-    return true;
   }
 
   /**
