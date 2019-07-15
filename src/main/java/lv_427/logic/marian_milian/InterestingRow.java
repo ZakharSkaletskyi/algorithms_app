@@ -20,6 +20,7 @@ public class InterestingRow implements TaskExecutor {
   private List<Integer> sequenceOfInterestingRow;
 
   /**
+   *
    * Constructor with non args, witch make declaration of empty list for storing element of sequence
    */
   public InterestingRow() {
