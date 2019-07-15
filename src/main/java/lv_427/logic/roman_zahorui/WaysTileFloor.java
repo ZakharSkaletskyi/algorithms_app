@@ -1,6 +1,8 @@
 package lv_427.logic.roman_zahorui;
 
 import java.util.Scanner;
+
+import lv_427.exceptions.IncorrectValueException;
 import lv_427.logic.TaskExecutor;
 
 /**
@@ -68,6 +70,9 @@ public class WaysTileFloor implements TaskExecutor {
    * @return - number of ways to tile the given floor of size n x m.
    */
   private int getWaysToTile(int n, int m) {
+    if (n < 0 || m < 0) {
+      throw new IncorrectValueException("An input value can't be negative.");
+    }
     int[] count = new int[n + 1];
     count[0] = 0;
 
