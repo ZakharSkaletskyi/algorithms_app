@@ -6,7 +6,6 @@ import java.util.logging.Logger;
 
 import lv_427.logic.TaskExecutor;
 
-import static lv_427.exceptions.WrongInputException.WRONG_LENGTH;
 
 /**
  * Class for finding the longest palindromic subsequence.
