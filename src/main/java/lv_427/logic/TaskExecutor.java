@@ -1,5 +1,5 @@
 package lv_427.logic;
 
-public interface TaskExecutor {
+public interface TaskExecutor  {
   void execute();
 }
