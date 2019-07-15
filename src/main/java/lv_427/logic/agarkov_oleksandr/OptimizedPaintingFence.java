@@ -1,8 +1,8 @@
 package lv_427.logic.agarkov_oleksandr;
 
-import java.util.Scanner;
-
 import lv_427.logic.TaskExecutor;
+
+import java.util.Scanner;
 
 /**
  * Class for finding the number of ways of painting the fence
@@ -10,50 +10,63 @@ import lv_427.logic.TaskExecutor;
  * @author Oleksandr Agarkov
  * @version 1.0
  */
-
 public class OptimizedPaintingFence implements TaskExecutor {
-    /**
-     * Scanner for reading from console.
-     */
-    private Scanner sc;
+  /** Scanner for reading from console. */
+  public Scanner sc;
 
-    public OptimizedPaintingFence() {
-        this.sc = new Scanner(System.in);
+  public OptimizedPaintingFence() {
+    this.sc = new Scanner(System.in);
+  }
+
+  private int posts;
+  private int colors;
+  /** Method is for ask the user about initialize parameters */
+  private void AskParametres() {
+    System.out.println("Enter a number of posts:");
+    colors = sc.nextInt();
+    System.out.println("Enter a number of colors:");
+    posts = sc.nextInt();
+  }
+
+  private long countWays() {
+    // There are colors ways to color first post
+    long total = (long) colors;
+    int mod = 1000000007;
+
+    // There are 0 ways for single post to
+    // violate (same color_ and colors ways to
+    // not violate (different color)
+    int same = 0, diff = colors;
+
+    // Fill for 2 posts onwards
+    for (int i = 2; i <= posts; i++) {
+      // Current same is same as previous diff
+      same = diff;
+
+      // We always have colors-1 choices for next post
+      diff = (int) total * (colors - 1);
+      diff = diff % mod;
+
+      // Total choices till i.
+      total = (same + diff) % mod;
     }
+    return total;
+  }
+  /** Method is for execute finding process. */
+  public void execute() {
 
-    /**
-     * Method is for execute finding process.
-     */
-    @Override
-    public void execute() {
-        //
-        int n, k;
-        System.out.println("Enter a number of fence or \'q\' to exit :");
-        k = sc.nextInt();
-        System.out.println("Enter a number of fence or \'q\' to exit :");
-        n = sc.nextInt();
-
-        // There are k ways to color first post
-        long total = k;
-        int mod = 1000000007;
-
-        // There are 0 ways for single post to
-        // violate (same color_ and k ways to
-        // not violate (different color)
-        int same = 0, diff = k;
-
-        // Fill for 2 posts onwards
-        for (int i = 2; i <= n; i++) {
-            // Current same is same as previous diff
-            same = diff;
-
-            // We always have k-1 choices for next post
-            diff = (int) total * (k - 1);
-            diff = diff % mod;
-
-            // Total choices till i.
-            total = (same + diff) % mod;
-        }
-        //return total;
+    try {
+      AskParametres();
+      System.out.println(
+          "There are "
+              + countWays()
+              + " possible ways of painting "
+              + posts
+              + " posts with "
+              + colors
+              + " colors.");
+    } catch (Exception exception) {
+      System.out.println("Error");
     }
+  }
 }
