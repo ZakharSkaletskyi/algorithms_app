@@ -1,8 +1,7 @@
 package lv_427;
 
-import lv_427.logic.TaskExecutor;
-
 import java.util.Scanner;
+import lv_427.logic.TaskExecutor;
 
 /**
  * Our first task.

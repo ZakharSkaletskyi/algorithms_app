@@ -2,10 +2,8 @@ package lv_427.logic.kateryna_horokh;
 
 import java.util.Scanner;
 
-import lv_427.exceptions.WrongInputException;
 import lv_427.logic.TaskExecutor;
 
-import static lv_427.exceptions.WrongInputException.WRONG_INPUT;
 
 /**
  * Class for finding the total number of ways in which friends can remain single or can be paired
@@ -33,7 +31,7 @@ public class FriendPairs implements TaskExecutor {
       String input = sc.next();
 
       if (!input.matches("[0-9]+")) {
-        throw new WrongInputException(WRONG_INPUT);
+
       }
 
       if (isWrongInput == false) {

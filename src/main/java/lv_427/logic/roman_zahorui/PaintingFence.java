@@ -103,7 +103,7 @@ public class PaintingFence implements TaskExecutor {
    * @return - an array of integers with length == 2. Represented posts amount at position 0 and
    *     сolors amount at position 1 or null if strData can't matches the correct string.
    */
-  public int[] parseStringToSize(String strData) throws NumberFormatException {
+  public int[] parseStringToSize(String strData)throws NumberFormatException {
 
     String strDataInLowCase = strData.toLowerCase();
     if (strDataInLowCase.contains(SPLIT_PATTERN)) {
