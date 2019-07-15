@@ -49,7 +49,7 @@ public class LongestSubsequent implements TaskExecutor {
    *
    * @param input - input string data.
    */
-  public void validateData(String input) {
+  private void validateData(String input) {
     String[] inputStringArray = input.split(" ");
 
     for (String s : inputStringArray) {
@@ -64,7 +64,7 @@ public class LongestSubsequent implements TaskExecutor {
    * @param input - input String of numbers.
    * @return int result of longest subsequent.
    */
-  public int find(String input) {
+  private int find(String input) {
     int maxSubsequent = 0;
     int currentSubsequent = 1;
 
