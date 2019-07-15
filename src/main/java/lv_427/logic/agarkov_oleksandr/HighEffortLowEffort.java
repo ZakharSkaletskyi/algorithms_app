@@ -15,7 +15,7 @@ public class HighEffortLowEffort implements TaskExecutor {
   /** Scanner for reading from console. */
   private Scanner sc;
 
-  private HighEffortLowEffort() {
+  public HighEffortLowEffort() {
     this.sc = new Scanner(System.in);
   }
 
