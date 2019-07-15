@@ -7,8 +7,8 @@ import lv_427.logic.marian_milian.InterestingRow;
 import lv_427.logic.marian_milian.ModificationFibonacci;
 import lv_427.logic.nazar_stasyuk.Fibonacci;
 import lv_427.logic.nazar_stasyuk.MergeSort;
-import lv_427.logic.nazar_vladyka.LongestSubsequentTask;
-import lv_427.logic.nazar_vladyka.PathsWithoutCrossingTask;
+import lv_427.logic.nazar_vladyka.LongestSubsequent;
+import lv_427.logic.nazar_vladyka.PathsWithoutCrossing;
 import lv_427.logic.roman_zahorui.PaintingFence;
 import lv_427.logic.roman_zahorui.WaysTileFloor;
 import lv_427.logic.rostyslav_khasanov.CountOfWaysToSumToN;
@@ -60,7 +60,7 @@ public class TaskFactory {
         taskExecutor = new InterestingRow();
         break;
       case 4:
-        taskExecutor = new LongestSubsequentTask();
+        taskExecutor = new LongestSubsequent();
         break;
       case 5:
         taskExecutor = new CountOfWaysToSumToN();
@@ -72,7 +72,7 @@ public class TaskFactory {
         taskExecutor = new WaysToCoverIn3steps();
         break;
       case 8:
-        taskExecutor = new PathsWithoutCrossingTask();
+        taskExecutor = new PathsWithoutCrossing();
         break;
       case 9:
         taskExecutor = new HighEffortLowEffort();
