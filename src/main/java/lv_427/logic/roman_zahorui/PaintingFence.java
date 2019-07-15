@@ -42,12 +42,17 @@ public class PaintingFence implements TaskExecutor {
     while (postsAmount <= 0 && colorAmount <= 0) {
       try {
         int[] amounts =
-            StringParser.parseStringToSize(sc.nextLine(), POSTS_MIN_VAL, COLORS_MIN_VAL);
+            StringParser.parseStringToSize(sc.nextLine());
         if (null == amounts) {
           System.out.println(FAIL_MESSAGE);
         } else {
           postsAmount = amounts[0];
           colorAmount = amounts[1];
+          if (postsAmount < POSTS_MIN_VAL || colorAmount < COLORS_MIN_VAL) {
+            System.out.println(FAIL_MESSAGE);
+            postsAmount = 0;
+            colorAmount = 0;
+          }
         }
       } catch (NumberFormatException e) {
         System.out.println(FAIL_MESSAGE);
