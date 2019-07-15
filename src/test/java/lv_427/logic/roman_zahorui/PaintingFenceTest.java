@@ -1,5 +1,6 @@
 package lv_427.logic.roman_zahorui;
 
+import lv_427.exceptions.IncorrectValueException;
 import mockit.Deencapsulation;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,8 +17,7 @@ public class PaintingFenceTest {
 
   private PaintingFence paintingFence;
 
-  /**
-   * Init method.*/
+  /** Init method. */
   @Before
   public void init() {
     this.paintingFence = new PaintingFence();
@@ -26,26 +26,14 @@ public class PaintingFenceTest {
   /** Method for testing countWays method */
   @Test
   public void countWays() {
-
     long invoke = Deencapsulation.invoke(paintingFence, "countWays", 2, 4);
-
     assertEquals(invoke, 16L);
   }
 
-  /** Method for testing parseStringToSize method */
-  @Test
-  public void parseStringToSize() {
-
-    int[] invoke = Deencapsulation.invoke(paintingFence, "parseStringToSize", "3 x 3");
-    int[] testArray = {3, 3};
-    for (int i = 0; i < invoke.length; i++) {
-      assertEquals(invoke[i], testArray[i]);
-    }
-  }
-
-  /** Method for testing exception in parseStringToSize method */
-  @Test(expected = NumberFormatException.class)
-  public void parseStringToSizeException() {
-    Deencapsulation.invoke(paintingFence, "parseStringToSize", "x x 3");
+  /** Method for testing exception in countWays method*/
+  @Test(expected = IncorrectValueException.class)
+  public void countWaysWithMinus() {
+    long invoke = Deencapsulation.invoke(paintingFence, "countWays", -1, -3);
+    //assertEquals(invoke, 16L);
   }
 }
