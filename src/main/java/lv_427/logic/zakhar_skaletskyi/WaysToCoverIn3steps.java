@@ -6,7 +6,7 @@ import lv_427.logic.TaskExecutor;
 
 public class WaysToCoverIn3steps implements TaskExecutor{
 	private Scanner sc;
-	public static int findStep(int n) 
+	private int findStep(int n) 
     { 
         if (n == 1 || n == 0)  
             return 1; 
@@ -28,7 +28,7 @@ public class WaysToCoverIn3steps implements TaskExecutor{
 		System.out.println("To return to menu just press Enter");
 		sc.nextLine();
 	} 
-	public int getDistance(Scanner sc) {
+	private int getDistance(Scanner sc) {
 		boolean check = true;
 		int distance = 0;
 		System.out.println("Please enter a distance less than 30");
