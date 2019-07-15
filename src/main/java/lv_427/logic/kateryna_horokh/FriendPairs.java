@@ -30,6 +30,8 @@ public class FriendPairs implements TaskExecutor {
     do {
       System.out.print("Please enter the number: ");
       strNum = sc.nextLine();
+      System.out.println("To return to menu just press Enter");
+      sc.nextLine();
     } while (!isInputValid(strNum));
 
     System.out.println("Result: " + findNumberOfWays(strNum));

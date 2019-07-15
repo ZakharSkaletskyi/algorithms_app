@@ -29,6 +29,8 @@ public class PalindromicSubsequence implements TaskExecutor {
     do {
       System.out.print("Please enter word: ");
       input = sc.nextLine();
+      System.out.println("To return to menu just press Enter");
+      sc.nextLine();
     } while (!isInputValid(input));
 
     System.out.println("Result: " + findPalindromLength(input));

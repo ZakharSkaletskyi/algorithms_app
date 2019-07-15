@@ -39,12 +39,12 @@ public class PathsWithoutCrossingTaskExecutorTest {
   }
 
   @Test
-  public void haveToReturnZero() {
+  public void shouldReturnZero() {
     Assert.assertEquals(0, paths.countWays(1));
   }
 
   @Test
-  public void haveToReturnTwo() {
+  public void shouldReturnTwo() {
     Assert.assertEquals(2, paths.countWays(4));
   }
 }
