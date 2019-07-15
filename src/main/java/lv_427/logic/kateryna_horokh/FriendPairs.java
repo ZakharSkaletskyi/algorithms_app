@@ -43,7 +43,7 @@ public class FriendPairs implements TaskExecutor {
    * @param strNum - incoming string
    * @return boolean true or false. If it returns true string is valid.
    */
-  public boolean isInputValid(String strNum) {
+  private boolean isInputValid(String strNum) {
     int integer;
 
     try {
@@ -72,7 +72,7 @@ public class FriendPairs implements TaskExecutor {
    * @param strNum - number which have to check how many ways
    * @return number of ways in which friends can remain single or can be paired up.
    */
-  public int findNumberOfWays(String strNum) {
+  private int findNumberOfWays(String strNum) {
 
     int resultOfInput = Integer.parseInt(strNum);
 

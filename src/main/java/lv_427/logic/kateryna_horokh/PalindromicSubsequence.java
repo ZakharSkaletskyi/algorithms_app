@@ -42,7 +42,7 @@ public class PalindromicSubsequence implements TaskExecutor {
    * @param input - incoming string
    * @return boolean true or false. If it returns true string is valid.
    */
-  public boolean isInputValid(String input) {
+  private boolean isInputValid(String input) {
     char[] chars = input.toCharArray();
 
     if (chars.length == 0) {
@@ -68,7 +68,7 @@ public class PalindromicSubsequence implements TaskExecutor {
    *     is included.
    * @return number of length the biggest palindrome.
    */
-  public int findPalindromLength(String input) {
+  private int findPalindromLength(String input) {
 
     char[] chars = input.toCharArray();
 
