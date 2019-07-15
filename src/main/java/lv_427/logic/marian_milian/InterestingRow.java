@@ -15,37 +15,47 @@ import java.util.Scanner;
  * @version 1.0
  */
 public class InterestingRow implements TaskExecutor {
-
+  private Scanner scanner;
   private final int LENGTH_OF_INTERESTING_ROW = 20;
   private List<Integer> sequenceOfInterestingRow;
 
+  /**
+   * Constructor with non args, witch make declaration of empty list for storing element of sequence
+   */
   public InterestingRow() {
+    scanner = new Scanner(System.in);
     sequenceOfInterestingRow = new ArrayList<Integer>();
     generateInterestingRowSequence(LENGTH_OF_INTERESTING_ROW);
   }
 
+  /** The method which valid input data and controlling process. */
   public void execute() {
-    Scanner sc = new Scanner(System.in);
+
     String inputFromUser;
     System.out.println("Welcome in  Interesting   row ");
-    do {
-      System.out.println("Please enter n-integer of position from 1 to 20  witch you like to see ");
-      inputFromUser = sc.nextLine();
-    } while (!isInputDataValid(inputFromUser));
-    System.out.println(
-        "On  position "
-            + inputFromUser
-            + " "
-            + "is number: "
-            + getElementFromList(Integer.parseInt(inputFromUser)));
-    System.out.println("______________");
-  }
+    while (true) {
 
-  private String getElementFromList(int position) {
-    return sequenceOfInterestingRow.get((position - 1)).toString();
+      System.out.println(
+          "Please enter n-integer of position from 1 to 20  witch you like to see or  'q' to exit");
+      inputFromUser = scanner.nextLine();
+      if (inputFromUser.equalsIgnoreCase("q")) {
+        break;
+      }
+      if (isInputDataValid(inputFromUser)) {
+        System.out.println(
+            "On  position "
+                + inputFromUser
+                + " "
+                + "is number: "
+                + getElementFromList(Integer.parseInt(inputFromUser)));
+        System.out.println("______________");
+
+      }
+    }
   }
 
   private boolean isInputDataValid(String input) {
+
     int number;
 
     try {
@@ -57,15 +67,9 @@ public class InterestingRow implements TaskExecutor {
       }
     } catch (NumberFormatException e) {
       System.err.println(
-          "Hmm.. Looks like your input - " + "\"" + input + "\"" + " is not a number");
+          "Hmm... Looks like your input - " + "\"" + input + "\"" + " is not a number");
       return false;
     }
-
-    if (input.length() > 3) {
-      System.err.println("Number has to be smaller than 3 symbols!");
-      return false;
-    }
-
     if ((number > 0)) {
       return true;
     } else {
@@ -96,5 +100,10 @@ public class InterestingRow implements TaskExecutor {
     }
     // recursive step.
     return generateValue(number - 1) + 2 * generateValue(number - 2);
+  }
+
+  /** The method witch casting input value to correct position representation in list */
+  private String getElementFromList(int position) {
+    return sequenceOfInterestingRow.get((position - 1)).toString();
   }
 }
