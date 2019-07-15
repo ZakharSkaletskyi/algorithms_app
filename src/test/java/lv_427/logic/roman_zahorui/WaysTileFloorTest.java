@@ -18,6 +18,11 @@ public class WaysTileFloorTest {
   }
 
   @Test
+  public void passingBigNumbers() {
+    Assert.assertEquals(102, waysTileFloor.getWaysToTile(500, 400));
+  }
+
+  @Test
   public void parseDataWhichNotFitPatternShouldReturnNull() {
     Assert.assertNull(waysTileFloor.parseStringToSize("4, 5"));
   }
@@ -34,6 +39,11 @@ public class WaysTileFloorTest {
 
   @Test(expected = NumberFormatException.class)
   public void parseInvalidDateShouldReturnException() {
+    waysTileFloor.parseStringToSize("k x 5");
+  }
+
+  @Test(expected = NumberFormatException.class)
+  public void oneOfArgumentIsAStringShouldReturnException() {
     waysTileFloor.parseStringToSize("k x 5");
   }
 }

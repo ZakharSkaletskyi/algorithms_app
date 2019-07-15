@@ -14,7 +14,17 @@ public class FriendPairsTest {
   }
 
   @Test
-  public void shouldReturn4ConnectiosWhenInputIs3Friends() {
+  public void shouldReturn4ConnectionsWhenInputIs3Friends() {
     Assert.assertEquals(4, friendPairs.findNumberOfWays("3"));
+  }
+
+  @Test
+  public void passingBigNumber() {
+    Assert.assertEquals(0, friendPairs.findNumberOfWays("500"));
+  }
+
+  @Test
+  public void passingMaxNumberWhichWillReturnValidResult() {
+    Assert.assertEquals(476894976, friendPairs.findNumberOfWays("27"));
   }
 }
