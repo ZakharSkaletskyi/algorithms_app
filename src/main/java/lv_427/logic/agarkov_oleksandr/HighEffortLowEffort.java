@@ -16,14 +16,14 @@ public class HighEffortLowEffort implements TaskExecutor {
      */
     private Scanner sc;
 
-    public HighEffortLowEffort() {
+    private HighEffortLowEffort() {
         this.sc = new Scanner(System.in);
     }
 
     /**
      * @return - Returns the maximum among the 2 numbers
      */
-    static int max ( int x, int y)
+    private static int max ( int x, int y)
     {
         return (x > y ? x : y);
     }
@@ -35,7 +35,7 @@ public class HighEffortLowEffort implements TaskExecutor {
         /**
          * @param days - quantity of days
          * @param high - range of max tasks
-         * @param low - range of max tasks
+         * @param low - range of low tasks
          */
         try {
             System.out.println("Enter the period(in days):");
