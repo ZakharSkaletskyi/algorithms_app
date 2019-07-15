@@ -1,6 +1,8 @@
 package lv_427;
 
 import lv_427.logic.TaskExecutor;
+import lv_427.logic.dmytro_dovhal.CountingSorting;
+import lv_427.logic.dmytro_dovhal.InsertionSorting;
 import lv_427.logic.kateryna_horokh.FriendPairs;
 import lv_427.logic.kateryna_horokh.PalindromicSubsequence;
 import lv_427.logic.marian_milian.InterestingRow;
@@ -93,8 +95,10 @@ public class TaskFactory {
         taskExecutor = new OptimizedPaintingFence();
         break;
       case 15:
+        taskExecutor = new InsertionSorting();
         break;
       case 16:
+        taskExecutor = new CountingSorting();
         break;
       case 17:
         break;
