@@ -1,9 +1,9 @@
 package lv_427.logic.kateryna_horokh;
 
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-//import lv_427.exceptions.WrongLengthOfString;
-import lv_427.exceptions.WrongInputException;
 import lv_427.logic.TaskExecutor;
 
 import static lv_427.exceptions.WrongInputException.WRONG_LENGTH;
@@ -15,7 +15,9 @@ import static lv_427.exceptions.WrongInputException.WRONG_LENGTH;
  * @version 1.0
  */
 public class PalindromicSubsequence implements TaskExecutor {
-  /** Scanner for reading from console. */
+
+  private static final Logger LOGGER = Logger.getLogger(PalindromicSubsequence.class.getName());
+
   private Scanner sc;
 
   public PalindromicSubsequence() {
@@ -24,31 +26,44 @@ public class PalindromicSubsequence implements TaskExecutor {
 
   /** Method is for execute finding process. */
   public void execute() {
+    String input;
 
-    System.out.println("Please enter the word: ");
+    do {
+      System.out.print("Please enter word: ");
+      input = sc.nextLine();
+    } while (!isInputValid(input));
 
-    boolean isWrongInput = true;
+    System.out.println("Result: " + findPalindromLength(input));
+  }
 
-    while (isWrongInput) {
+  /**
+   * This method check if string valid or not.
+   *
+   * @param input - incoming string
+   * @return boolean true or false. If it returns true string is valid.
+   */
+  public boolean isInputValid(String input) {
+    char[] chars = input.toCharArray();
 
-      String input = sc.nextLine();
+    if (chars.length == 0) {
+      LOGGER.log(Level.WARNING, "You didn't enter anything. Try again please.");
+      return false;
+    } else if (!input.matches("[a-zA-Z]+")) {
+      LOGGER.log(Level.WARNING, "Your text contains numbers. Try again please.");
+      return false;
+    }
 
-      char[] chars = input.toCharArray();
-
-      if (chars.length > 100) {
-        throw new WrongInputException(WRONG_LENGTH);
-      }
-
-      if (isWrongInput == false) {
-        System.out.println("Try again.");
-      } else {
-        System.out.println("Result: " + findPalindromLength(input));
-        break;
-      }
+    if (chars.length > 100) {
+      LOGGER.log(Level.WARNING, "Your text too long. Try again please.");
+      return false;
+    } else {
+      return true;
     }
   }
 
   /**
+   * This method for finding palindrom length.
+   *
    * @param input - a string which have to check how many symbols has the biggest palindrome which
    *     is included.
    * @return number of length the biggest palindrome.
@@ -56,6 +71,7 @@ public class PalindromicSubsequence implements TaskExecutor {
   public int findPalindromLength(String input) {
 
     char[] chars = input.toCharArray();
+
     int[][] LP = new int[chars.length][chars.length];
 
     // LP[i][j] - length of palindrome from i index to j index
