@@ -45,11 +45,15 @@ public class PalindromicSubsequence implements TaskExecutor {
 
     if (chars.length == 0) {
       LOGGER.log(Level.WARNING, "You didn't enter anything. Try again please.");
-      return  false;
+      return false;
+    } else if (!input.matches("[a-zA-Z]+")) {
+      LOGGER.log(Level.WARNING, "Your text contains numbers. Try again please.");
+      return false;
     }
+
     if (chars.length > 100) {
       LOGGER.log(Level.WARNING, "Your text too long. Try again please.");
-      return  false;
+      return false;
     } else {
       return true;
     }
