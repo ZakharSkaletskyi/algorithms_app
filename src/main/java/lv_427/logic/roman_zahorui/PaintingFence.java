@@ -15,9 +15,7 @@ public class PaintingFence implements TaskExecutor {
 
   private static final int POSTS_MIN_VAL = 1;
   private static final int COLORS_MIN_VAL = 1;
-  private static final String SPLIT_PATTERN = " x ";
   private static final String FAIL_MESSAGE = "Try again!";
-  private static final String INPUT_MSG = "Input : ";
   private static final String OUTPUT_MSG = "Output : ";
   private static final String OUTPUT_MSG_MORE = " or even more!";
   private static final String TERMS_OF_USE =
@@ -43,7 +41,8 @@ public class PaintingFence implements TaskExecutor {
     int colorAmount = 0;
     while (postsAmount <= 0 && colorAmount <= 0) {
       try {
-        int[] amounts = parseStringToSize(sc.nextLine());
+        int[] amounts = StringParser
+                .parseStringToSize(sc.nextLine(), POSTS_MIN_VAL, COLORS_MIN_VAL);
         if (null == amounts) {
           System.out.println(FAIL_MESSAGE);
         } else {
@@ -54,9 +53,6 @@ public class PaintingFence implements TaskExecutor {
         System.out.println(FAIL_MESSAGE);
       }
     }
-
-    String inputMsg = INPUT_MSG + postsAmount + SPLIT_PATTERN + colorAmount;
-    System.out.println(inputMsg);
 
     long amountOfWays = countWays(postsAmount, colorAmount);
     String outputStr = OUTPUT_MSG + amountOfWays;
@@ -76,7 +72,7 @@ public class PaintingFence implements TaskExecutor {
    * @param colors - amount of given colors.
    * @return - number of ways to paint the fence.
    */
-  public long countWays(int posts, int colors) {
+  private long countWays(int posts, int colors) {
     long[] subProblems = new long[posts + 1];
     subProblems[0] = 0;
     subProblems[1] = colors;
@@ -94,32 +90,5 @@ public class PaintingFence implements TaskExecutor {
       }
     }
     return subProblems[posts];
-  }
-
-  /**
-   * The method tries to extract data from an input string.
-   *
-   * @param strData - input string data.
-   * @return - an array of integers with length == 2. Represented posts amount at position 0 and
-   *     сolors amount at position 1 or null if strData can't matches the correct string.
-   */
-  public int[] parseStringToSize(String strData) throws NumberFormatException {
-
-    String strDataInLowCase = strData.toLowerCase();
-    if (strDataInLowCase.contains(SPLIT_PATTERN)) {
-
-      String[] sizeParts = strDataInLowCase.split(SPLIT_PATTERN);
-      int[] sizeArray = new int[2];
-
-      int widthValue = Integer.valueOf(sizeParts[0]);
-      int heightValue = Integer.valueOf(sizeParts[1]);
-
-      if (widthValue >= POSTS_MIN_VAL && heightValue >= COLORS_MIN_VAL) {
-        sizeArray[0] = widthValue;
-        sizeArray[1] = heightValue;
-        return sizeArray;
-      }
-    }
-    return null;
   }
 }
