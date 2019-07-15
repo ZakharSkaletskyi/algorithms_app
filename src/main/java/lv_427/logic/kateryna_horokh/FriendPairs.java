@@ -53,6 +53,12 @@ public class FriendPairs implements TaskExecutor {
     if (integer == 0) {
       LOGGER.log(Level.WARNING, "You didn't enter anything. Try again please.");
       return false;
+    } else if (integer > 27) {
+      LOGGER.log(Level.WARNING, "You entered wrong number. Try again please.");
+      return false;
+    } else  if(integer <= -1) {
+      LOGGER.log(Level.WARNING, "Your number is less than 0. Try again please.");
+      return false;
     }
     return true;
   }
