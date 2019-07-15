@@ -17,42 +17,62 @@ public class OptimizedPaintingFence implements TaskExecutor {
      */
     private Scanner sc;
 
-    public OptimizedPaintingFence() {
+    private OptimizedPaintingFence() {
         this.sc = new Scanner(System.in);
     }
 
-    /**
-     * Method is for execute finding process.
-     */
-    public void execute() {
-        //
-        int n, k;
-        System.out.println("Enter a number of fence or \'q\' to exit :");
-        k = sc.nextInt();
-        System.out.println("Enter a number of fence or \'q\' to exit :");
-        n = sc.nextInt();
 
-        // There are k ways to color first post
-        long total = k;
+    private int posts;
+    private int colors;
+    /**
+     * Method is for ask the user about initialize parameters
+     */
+    private static void AskParametres throws Exception()
+    {
+        System.out.println("Enter a number of posts:");
+        this.colors = sc.nextInt();
+        System.out.println("Enter a number of colors:");
+        this.posts = sc.nextInt();
+
+    }
+    private static long countWays throws Exception()
+    {
+        // There are colors ways to color first post
+        long total = (long) colors;
         int mod = 1000000007;
 
         // There are 0 ways for single post to
-        // violate (same color_ and k ways to
+        // violate (same color_ and colors ways to
         // not violate (different color)
-        int same = 0, diff = k;
+        int same = 0, diff = colors;
 
         // Fill for 2 posts onwards
-        for (int i = 2; i <= n; i++) {
+        for (int i = 2; i <= posts; i++)
+        {
             // Current same is same as previous diff
             same = diff;
 
-            // We always have k-1 choices for next post
-            diff = (int) total * (k - 1);
+            // We always have colors-1 choices for next post
+            diff = (int)total * (colors - 1);
             diff = diff % mod;
 
             // Total choices till i.
             total = (same + diff) % mod;
         }
-        //return total;
+        return total;
+    }
+    /**
+     * Method is for execute finding process.
+     */
+    public void execute() {
+
+        try {
+            AskParametres();
+            System.out.println("There are" + countWays() + "possible ways of painting "+ posts + " posts with " + colors + " colors.");
+        }catch (Exception exception)
+        {
+            System.out.println("Error");
+        }
+
     }
 }
