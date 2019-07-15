@@ -71,7 +71,7 @@ public class CountOfWaysToSumToN implements TaskExecutor {
    * @return returns a number that means how many ways we have to represent one number with a given
    *     array of numbers integers.
    */
-  public int countWays(int[] arr, int n, int m) {
+  private int countWays(int[] arr, int n, int m) {
     int mas[] = arr;
     int count[] = new int[n + 1];
     count[0] = 1;
