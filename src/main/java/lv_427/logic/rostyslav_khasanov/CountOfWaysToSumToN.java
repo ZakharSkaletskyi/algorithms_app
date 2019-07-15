@@ -20,8 +20,6 @@ public class CountOfWaysToSumToN implements TaskExecutor {
     Scanner sc = new Scanner(System.in);
     String str;
     int number = 0;
-    /** The length of array numbers */
-    int m;
     /** Array for string elements */
     String strArr[];
     /** Array with integers, which consist elements of strArr after parse */
@@ -45,7 +43,6 @@ public class CountOfWaysToSumToN implements TaskExecutor {
       }
     }
     check = true;
-    m = numbers.length;
     System.out.println("Enter positive number :");
     for (; ; ) {
       try {
@@ -59,21 +56,21 @@ public class CountOfWaysToSumToN implements TaskExecutor {
       }
     }
 
-    System.out.println(countWays(numbers, number, m));
+    System.out.println(countWays(numbers, number));
   }
 
   /**
    * Method is for find how many ways we have to represent one number with a given array of numbers
    *
-   * @param m is length of array numbers.
    * @param n is one entered positive number
    * @param arr is array of numbers.
    * @return returns a number that means how many ways we have to represent one number with a given
    *     array of numbers integers.
    */
-  private int countWays(int[] arr, int n, int m) {
+  private int countWays(int[] arr, int n) {
     int mas[] = arr;
     int count[] = new int[n + 1];
+    int m = arr.length;
     count[0] = 1;
     for (int i = 1; i <= n; i++) {
       for (int j = 0; j < m; j++) {
