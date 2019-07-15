@@ -13,6 +13,7 @@ import lv_427.logic.nazar_vladyka.LongestSubsequent;
 import lv_427.logic.nazar_vladyka.PathsWithoutCrossing;
 import lv_427.logic.roman_zahorui.PaintingFence;
 import lv_427.logic.roman_zahorui.WaysTileFloor;
+import lv_427.logic.rostyslav_khasanov.BucketSort;
 import lv_427.logic.rostyslav_khasanov.CountOfWaysToSumToN;
 import lv_427.logic.rostyslav_khasanov.NumAsSumOfTwoOrMorePosInt;
 import lv_427.logic.zakhar_skaletskyi.WaysToCoverIn3steps;
@@ -103,6 +104,7 @@ public class TaskFactory {
       case 17:
         break;
       case 18:
+        taskExecutor = new BucketSort();
         break;
       case 19:
         taskExecutor = new MergeSort();
