@@ -1,6 +1,8 @@
 package lv_427.logic.roman_zahorui;
 
 import java.util.Scanner;
+
+import lv_427.exceptions.IncorrectValueException;
 import lv_427.logic.TaskExecutor;
 
 /**
@@ -14,9 +16,7 @@ public class WaysTileFloor implements TaskExecutor {
 
   private static final int WIDTH_MIN_VAL = 1;
   private static final int HEIGHT_MIN_VAL = 2;
-  private static final String SPLIT_PATTERN = " x ";
   private static final String FAIL_MESSAGE = "Try again!";
-  private static final String INPUT_MESSAGE = "Input : ";
   private static final String OUTPUT_MESSAGE = "Output : ";
   private static final String TERMS_OF_USE =
       "Enter a size of a floor as n x m."
@@ -39,9 +39,14 @@ public class WaysTileFloor implements TaskExecutor {
     int[] floorSize = null;
     while (null == floorSize) {
       try {
-        floorSize = parseStringToSize(sc.nextLine());
+        floorSize = StringParser.parseStringToSize(sc.nextLine());
         if (null == floorSize) {
           System.out.println(FAIL_MESSAGE);
+        } else {
+          if (floorSize[0] < WIDTH_MIN_VAL || floorSize[1] < HEIGHT_MIN_VAL) {
+            System.out.println(FAIL_MESSAGE);
+            floorSize = null;
+          }
         }
       } catch (NumberFormatException e) {
         System.out.println(FAIL_MESSAGE);
@@ -49,9 +54,6 @@ public class WaysTileFloor implements TaskExecutor {
     }
     int width = floorSize[0];
     int height = floorSize[1];
-
-    String inputMsg = INPUT_MESSAGE + width + SPLIT_PATTERN + height;
-    System.out.println(inputMsg);
 
     int amountOfWays = getWaysToTile(width, height);
 
@@ -67,7 +69,10 @@ public class WaysTileFloor implements TaskExecutor {
    * @param m - height of the floor and length of a tile.
    * @return - number of ways to tile the given floor of size n x m.
    */
-  public int getWaysToTile(int n, int m) {
+  private int getWaysToTile(int n, int m) {
+    if (n < 0 || m < 0) {
+      throw new IncorrectValueException("An input value can't be negative.");
+    }
     int[] count = new int[n + 1];
     count[0] = 0;
 
@@ -82,32 +87,5 @@ public class WaysTileFloor implements TaskExecutor {
       }
     }
     return count[n];
-  }
-
-  /**
-   * The method tries to extract data from the input string.
-   *
-   * @param strData - input string data.
-   * @return Size of the floor as an array of integers with length == 2 or null if strData can't
-   *     matches the correct string.
-   */
-  public int[] parseStringToSize(String strData) throws NumberFormatException {
-
-    String strDataInLowCase = strData.toLowerCase();
-    if (strDataInLowCase.contains(SPLIT_PATTERN)) {
-
-      String[] sizeParts = strDataInLowCase.split(SPLIT_PATTERN);
-      int[] sizeArray = new int[2];
-
-      int widthValue = Integer.valueOf(sizeParts[0]);
-      int heightValue = Integer.valueOf(sizeParts[1]);
-
-      if (widthValue >= WIDTH_MIN_VAL && heightValue >= HEIGHT_MIN_VAL) {
-        sizeArray[0] = widthValue;
-        sizeArray[1] = heightValue;
-        return sizeArray;
-      }
-    }
-    return null;
   }
 }

@@ -1,5 +1,6 @@
 package lv_427.logic.rostyslav_khasanov;
 
+import lv_427.exceptions.IncorrectValueException;
 import lv_427.logic.TaskExecutor;
 
 import java.util.Scanner;
@@ -16,18 +17,15 @@ public class CountOfWaysToSumToN implements TaskExecutor {
 
   /** Executable method. */
   public void execute() {
-    boolean check = true;
     Scanner sc = new Scanner(System.in);
     String str;
     int number = 0;
-    /** The length of array numbers */
-    int m;
     /** Array for string elements */
     String strArr[];
     /** Array with integers, which consist elements of strArr after parse */
     int numbers[];
 
-    System.out.println("Enter array of numbers like '1 5 2 12 1': \n");
+    System.out.println("Enter array of positive numbers like '1 5 2 12 1': ");
     for (; ; ) {
       str = sc.nextLine();
       strArr = str.split(" ");
@@ -35,45 +33,47 @@ public class CountOfWaysToSumToN implements TaskExecutor {
       try {
         for (int i = 0; i < strArr.length; i++) {
           numbers[i] = Integer.parseInt(strArr[i]);
+          if (numbers[i] < 0) {
+            throw new IncorrectValueException("Just positive numbers!");
+          }
         }
-        check = false;
-      } catch (Exception e) {
-        System.out.println("Only numbers is array like '1 22 4 3' !");
-      }
-      if (check == false) {
         break;
+      } catch (NumberFormatException e) {
+        System.out.println("Only positive numbers in array like '1 22 4 3' !");
+      } catch (IncorrectValueException e) {
+        System.out.println(e.getMessage());
       }
     }
-    check = true;
-    m = numbers.length;
     System.out.println("Enter positive number :");
     for (; ; ) {
       try {
         number = Integer.parseInt(sc.nextLine());
-        check = false;
-      } catch (Exception e) {
-        System.out.println("Enter just one positive number!");
-      }
-      if (check == false) {
+        if (number < 0) {
+          throw new IncorrectValueException("Just positive numbers!");
+        }
         break;
+      } catch (NumberFormatException e) {
+        System.out.println("Enter just one positive number!");
+      } catch (IncorrectValueException e) {
+        System.out.println(e.getMessage());
       }
     }
 
-    System.out.println(countWays(numbers, number, m));
+    System.out.println(countWays(numbers, number));
   }
 
   /**
    * Method is for find how many ways we have to represent one number with a given array of numbers
    *
-   * @param m is length of array numbers.
    * @param n is one entered positive number
    * @param arr is array of numbers.
    * @return returns a number that means how many ways we have to represent one number with a given
    *     array of numbers integers.
    */
-  private int countWays(int[] arr, int n, int m) {
+  private int countWays(int[] arr, int n) {
     int mas[] = arr;
     int count[] = new int[n + 1];
+    int m = arr.length;
     count[0] = 1;
     for (int i = 1; i <= n; i++) {
       for (int j = 0; j < m; j++) {

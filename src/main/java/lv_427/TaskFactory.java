@@ -3,6 +3,8 @@ package lv_427;
 import javax.management.Query;
 
 import lv_427.logic.TaskExecutor;
+import lv_427.logic.dmytro_dovhal.CountingSorting;
+import lv_427.logic.dmytro_dovhal.InsertionSorting;
 import lv_427.logic.kateryna_horokh.FriendPairs;
 import lv_427.logic.kateryna_horokh.PalindromicSubsequence;
 import lv_427.logic.marian_milian.InterestingRow;
@@ -13,6 +15,7 @@ import lv_427.logic.nazar_vladyka.LongestSubsequent;
 import lv_427.logic.nazar_vladyka.PathsWithoutCrossing;
 import lv_427.logic.roman_zahorui.PaintingFence;
 import lv_427.logic.roman_zahorui.WaysTileFloor;
+import lv_427.logic.rostyslav_khasanov.BucketSort;
 import lv_427.logic.rostyslav_khasanov.CountOfWaysToSumToN;
 import lv_427.logic.rostyslav_khasanov.NumAsSumOfTwoOrMorePosInt;
 import lv_427.logic.zakhar_skaletskyi.QuickSort;
@@ -96,13 +99,16 @@ public class TaskFactory {
         taskExecutor = new OptimizedPaintingFence();
         break;
       case 15:
+        taskExecutor = new InsertionSorting();
         break;
       case 16:
+        taskExecutor = new CountingSorting();
         break;
       case 17:
         taskExecutor = new QuickSort();
         break;
       case 18:
+        taskExecutor = new BucketSort();
         break;
       case 19:
         taskExecutor = new MergeSort();
