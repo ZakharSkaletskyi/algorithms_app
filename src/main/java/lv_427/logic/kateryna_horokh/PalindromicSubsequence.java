@@ -6,8 +6,6 @@ import java.util.logging.Logger;
 
 import lv_427.logic.TaskExecutor;
 
-import static lv_427.exceptions.WrongInputException.WRONG_LENGTH;
-
 /**
  * Class for finding the longest palindromic subsequence.
  *
@@ -75,8 +73,6 @@ public class PalindromicSubsequence implements TaskExecutor {
     int[][] LP = new int[chars.length][chars.length];
 
     // LP[i][j] - length of palindrome from i index to j index
-    // all the characters in the string are palindrome by itself of length 1.
-    // So all LP[i][i] =  1
     for (int i = 0; i < chars.length; i++) {
       LP[i][i] = 1;
     }

@@ -15,9 +15,9 @@ public class PathsWithoutCrossingTaskExecutorTest {
     paths = new PathsWithoutCrossingTaskExecutor();
   }
 
-  @Test(expected = NumberFormatException.class)
+  @Test
   public void isInputDataReturnException() {
-    paths.isInputDataValid("р");
+    Assert.assertFalse(paths.isInputDataValid("h"));
   }
 
   @Test
