@@ -43,7 +43,7 @@ public class NumAsSumOfTwoOrMorePosInt implements TaskExecutor {
    * @return returns a number that means how many ways is possible to calculate n with positive
    *     integers.
    */
-  public int countWays(int n) {
+  private int countWays(int n) {
     int table[] = new int[n + 1];
     Arrays.fill(table, 0);
     table[0] = 1;
