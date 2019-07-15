@@ -53,6 +53,7 @@ public class CountingSorting implements TaskExecutor {
               + "\n"
               + "Sorted array: "
               + Arrays.toString(countingSorting(arrayForSorting))
+              + "\n"
               + "Do you want to quit? Press \'q\', else press any key...");
       String agreement = scanner.next();
       if (agreement.equalsIgnoreCase("q")) {
