@@ -28,6 +28,7 @@ public class WaysToCoverIn3steps implements TaskExecutor{
 		System.out.println("To return to menu just press Enter");
 		sc.nextLine();
 	} 
+	
 	private int getDistance(Scanner sc) {
 		boolean check = true;
 		int distance = 0;
