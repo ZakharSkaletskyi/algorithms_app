@@ -2,8 +2,11 @@ package lv_427.logic.kateryna_horokh;
 
 import java.util.Scanner;
 
-import lv_427.exceptions.WrongLengthOfString;
+//import lv_427.exceptions.WrongLengthOfString;
+import lv_427.exceptions.WrongInputException;
 import lv_427.logic.TaskExecutor;
+
+import static lv_427.exceptions.WrongInputException.WRONG_LENGTH;
 
 /**
  * Class for finding the longest palindromic subsequence.
@@ -22,19 +25,37 @@ public class PalindromicSubsequence implements TaskExecutor {
   /** Method is for execute finding process. */
   public void execute() {
 
-    String input = sc.nextLine();
+    System.out.println("Please enter the word: ");
 
-    char[] chars = input.toCharArray();
+    boolean isWrongInput = true;
 
-    if (chars.length > 100) {
-      try {
-        throw new WrongLengthOfString(
-            "String has not contain more than 100 characters. Try again please.");
-      } catch (WrongLengthOfString wrongLengthOfString) {
-        wrongLengthOfString.printStackTrace();
+    while (isWrongInput) {
+
+      String input = sc.nextLine();
+
+      char[] chars = input.toCharArray();
+
+      if (chars.length > 100) {
+        throw new WrongInputException(WRONG_LENGTH);
+      }
+
+      if (isWrongInput == false) {
+        System.out.println("Try again.");
+      } else {
+        System.out.println("Result: " + findPalindromLength(input));
+        break;
       }
     }
+  }
 
+  /**
+   * @param input - a string which have to check how many symbols has the biggest palindrome which
+   *     is included.
+   * @return number of length the biggest palindrome.
+   */
+  public int findPalindromLength(String input) {
+
+    char[] chars = input.toCharArray();
     int[][] LP = new int[chars.length][chars.length];
 
     // LP[i][j] - length of palindrome from i index to j index
@@ -56,6 +77,6 @@ public class PalindromicSubsequence implements TaskExecutor {
         }
       }
     }
-    System.out.println(LP[0][LP.length - 1]);
+    return LP[0][LP.length - 1];
   }
 }
