@@ -31,6 +31,6 @@ public class PathsWithoutCrossingTask implements TaskExecutor {
       input = sc.nextLine();
     } while (!executor.isInputDataValid(input));
 
-    System.out.print("Result: " + executor.countWays(Integer.parseInt(input)));
+    System.out.println("Result: " + executor.countWays(Integer.parseInt(input)));
   }
 }
