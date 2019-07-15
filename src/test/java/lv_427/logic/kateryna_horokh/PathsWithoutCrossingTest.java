@@ -42,14 +42,14 @@ public class PathsWithoutCrossingTest {
     String input = Deencapsulation.invoke(paths, "validateData", "3");
   }
 
-  /** Method: countWays(int n) */
+  /** Method for testing countWays method */
   @Test
   public void shouldReturnZero() {
     int input = Deencapsulation.invoke(paths, "countWays", 1);
     Assert.assertEquals(0, input);
   }
 
-  /** Method: countWays(int n) */
+  /** Method for testing countWays method */
   @Test
   public void shouldReturnTwo() {
     int input = Deencapsulation.invoke(paths, "countWays", 4);
