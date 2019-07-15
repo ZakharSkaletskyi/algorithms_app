@@ -34,7 +34,7 @@ public class PathsWithoutCrossingTask implements TaskExecutor {
       input = sc.nextLine();
 
       try {
-        executor.isInputDataValid(input);
+        executor.validateData(input);
       } catch (NumberFormatException e) {
         System.err.println("NumberFormatException " + e.getMessage());
         isInputValid = false;

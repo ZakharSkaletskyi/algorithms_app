@@ -13,7 +13,7 @@ public class PathsWithoutCrossingTaskExecutor {
    *
    * @param input - input string data.
    */
-  public void isInputDataValid(String input) {
+  public void validateData(String input) {
     int number = Integer.parseInt(input);
 
     if (number <= 0) {

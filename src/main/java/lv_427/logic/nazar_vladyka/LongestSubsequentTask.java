@@ -23,11 +23,22 @@ public class LongestSubsequentTask implements TaskExecutor {
   /** The method which doing job us a controller(validate input data and send data to execution). */
   public void execute() {
     String input;
+    boolean isInputValid;
 
     do {
+      isInputValid = true;
+
       System.out.print("Please send me the numbers using space between them like \"1 2 3\": ");
       input = sc.nextLine();
-    } while (!executor.isInputDataValid(input));
+
+      try {
+        executor.isInputDataValid(input);
+      } catch (NumberFormatException e) {
+        System.err.println("NumberFormatException " + e.getMessage());
+        isInputValid = false;
+      }
+
+    } while (!isInputValid);
 
     System.out.println("Result: " + executor.find(input));
   }
