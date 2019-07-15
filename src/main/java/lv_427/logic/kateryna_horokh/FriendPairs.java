@@ -28,13 +28,13 @@ public class FriendPairs implements TaskExecutor {
     String strNum;
 
     do {
-      System.out.print("Please enter the number: ");
+      System.out.print("Please send me the number for finding the total number of ways: ");
       strNum = sc.nextLine();
-      System.out.println("To return to menu just press Enter");
-      sc.nextLine();
     } while (!isInputValid(strNum));
 
     System.out.println("Result: " + findNumberOfWays(strNum));
+    System.out.println("To return to menu just press - Enter");
+    sc.nextLine();
   }
 
   /**
@@ -58,7 +58,7 @@ public class FriendPairs implements TaskExecutor {
     } else if (integer > 27) {
       LOGGER.log(Level.WARNING, "You entered wrong number. Try again please.");
       return false;
-    } else  if(integer <= -1) {
+    } else if (integer <= -1) {
       LOGGER.log(Level.WARNING, "Your number is less than 0. Try again please.");
       return false;
     }

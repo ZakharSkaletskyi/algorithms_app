@@ -7,8 +7,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * Class is for testing PathsWithoutCrossing class.
  *
@@ -17,45 +15,44 @@ import static org.junit.Assert.*;
  */
 public class PathsWithoutCrossingTest {
 
-    @Tested
-    private PathsWithoutCrossing paths;
+  @Tested private PathsWithoutCrossing paths;
 
-    @Before
-    public void init() {
-        paths = new PathsWithoutCrossing();
-    }
+  @Before
+  public void init() {
+    paths = new PathsWithoutCrossing();
+  }
 
-    /** Method: validateData(String input) has to throw NumberFormatException if parameter is not number*/
-    @Test(expected = NumberFormatException.class)
-    public void isInputDataIsNumber() throws Exception{
-        String input4 = Deencapsulation.invoke(paths, "validateData", "h");
-    }
+  /** Method for testing exception in validateData method */
+  @Test(expected = NumberFormatException.class)
+  public void isInputDataIsNumber() throws Exception {
+    String input4 = Deencapsulation.invoke(paths, "validateData", "h");
+  }
 
-    /** Method: validateData(String input) has to throw NumberFormatException when parameter < 52, less or is 0*/
-    @Test(expected = NumberFormatException.class)
-    public void isInputDataReturnException() throws Exception{
-        String input = Deencapsulation.invoke(paths, "validateData", "54");
-        String input2 = Deencapsulation.invoke(paths, "validateData", "0");
-        String input3 = Deencapsulation.invoke(paths, "validateData", "-2");
-    }
+  /** Method for testing exception in validateData method */
+  @Test(expected = NumberFormatException.class)
+  public void isInputDataReturnException() throws Exception {
+    String input = Deencapsulation.invoke(paths, "validateData", "54");
+    String input2 = Deencapsulation.invoke(paths, "validateData", "0");
+    String input3 = Deencapsulation.invoke(paths, "validateData", "-2");
+  }
 
-    /** Method: validateData(String input) has to throw NumberFormatException when parameter is odd*/
-    @Test(expected = NumberFormatException.class)
-    public void testEvenNumber() throws Exception{
-        String input = Deencapsulation.invoke(paths, "validateData", "3");
-    }
+  /** Method for testing exception in validateData method */
+  @Test(expected = NumberFormatException.class)
+  public void testEvenNumber() throws Exception {
+    String input = Deencapsulation.invoke(paths, "validateData", "3");
+  }
 
-    /** Method: countWays(int n) has to return 0 if incoming number is 1*/
-    @Test
-    public void shouldReturnZero(){
-        int input = Deencapsulation.invoke(paths, "countWays", 1);
-        Assert.assertEquals(0, input);
-    }
+  /** Method: countWays(int n) */
+  @Test
+  public void shouldReturnZero() {
+    int input = Deencapsulation.invoke(paths, "countWays", 1);
+    Assert.assertEquals(0, input);
+  }
 
-    /** Method: countWays(int n) has to return 2 if method works right*/
-    @Test
-    public void shouldReturnTwo() {
-        int input = Deencapsulation.invoke(paths, "countWays", 4);
-        Assert.assertEquals(2, input);
-    }
+  /** Method: countWays(int n) */
+  @Test
+  public void shouldReturnTwo() {
+    int input = Deencapsulation.invoke(paths, "countWays", 4);
+    Assert.assertEquals(2, input);
+  }
 }

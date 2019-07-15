@@ -1,5 +1,7 @@
 package lv_427;
 
+import javax.management.Query;
+
 import lv_427.logic.TaskExecutor;
 import lv_427.logic.kateryna_horokh.FriendPairs;
 import lv_427.logic.kateryna_horokh.PalindromicSubsequence;
@@ -13,6 +15,7 @@ import lv_427.logic.roman_zahorui.PaintingFence;
 import lv_427.logic.roman_zahorui.WaysTileFloor;
 import lv_427.logic.rostyslav_khasanov.CountOfWaysToSumToN;
 import lv_427.logic.rostyslav_khasanov.NumAsSumOfTwoOrMorePosInt;
+import lv_427.logic.zakhar_skaletskyi.QuickSort;
 import lv_427.logic.zakhar_skaletskyi.WaysToCoverIn3steps;
 import lv_427.logic.agarkov_oleksandr.*;
 
@@ -97,6 +100,7 @@ public class TaskFactory {
       case 16:
         break;
       case 17:
+        taskExecutor = new QuickSort();
         break;
       case 18:
         break;

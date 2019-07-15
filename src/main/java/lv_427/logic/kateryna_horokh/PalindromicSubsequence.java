@@ -27,13 +27,13 @@ public class PalindromicSubsequence implements TaskExecutor {
     String input;
 
     do {
-      System.out.print("Please enter word: ");
+      System.out.print("Please send me the word for finding the longest palindromic subsequence: ");
       input = sc.nextLine();
-      System.out.println("To return to menu just press Enter");
-      sc.nextLine();
     } while (!isInputValid(input));
 
     System.out.println("Result: " + findPalindromLength(input));
+    System.out.println("To return to menu just press - Enter");
+    sc.nextLine();
   }
 
   /**
