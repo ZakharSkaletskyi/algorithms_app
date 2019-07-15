@@ -2,6 +2,7 @@ package lv_427.logic.roman_zahorui;
 
 import java.util.Scanner;
 
+import lv_427.exceptions.IncorrectValueException;
 import lv_427.logic.TaskExecutor;
 
 /**
@@ -41,8 +42,7 @@ public class PaintingFence implements TaskExecutor {
     int colorAmount = 0;
     while (postsAmount <= 0 && colorAmount <= 0) {
       try {
-        int[] amounts =
-            StringParser.parseStringToSize(sc.nextLine());
+        int[] amounts = StringParser.parseStringToSize(sc.nextLine());
         if (null == amounts) {
           System.out.println(FAIL_MESSAGE);
         } else {
@@ -78,6 +78,9 @@ public class PaintingFence implements TaskExecutor {
    * @return - number of ways to paint the fence.
    */
   private long countWays(int posts, int colors) {
+    if (posts < 1 || colors < 1) {
+      throw new IncorrectValueException("An input amount of posts or colors can't be less then 1.");
+    }
     long[] subProblems = new long[posts + 1];
     subProblems[0] = 0;
     subProblems[1] = colors;
