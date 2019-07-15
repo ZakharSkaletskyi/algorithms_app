@@ -15,27 +15,27 @@ public class OptimizedPaintingFence implements TaskExecutor {
     /**
      * Scanner for reading from console.
      */
-    private Scanner sc;
+    public static Scanner sc;
 
-    private OptimizedPaintingFence() {
+    public OptimizedPaintingFence() {
         this.sc = new Scanner(System.in);
     }
 
 
-    private int posts;
-    private int colors;
+    private static int posts;
+    private static int colors;
     /**
      * Method is for ask the user about initialize parameters
      */
-    private static void AskParametres throws Exception()
+    private static void AskParametres ()
     {
         System.out.println("Enter a number of posts:");
-        this.colors = sc.nextInt();
+        colors = sc.nextInt();
         System.out.println("Enter a number of colors:");
-        this.posts = sc.nextInt();
+        posts = sc.nextInt();
 
     }
-    private static long countWays throws Exception()
+    private static long countWays  ()
     {
         // There are colors ways to color first post
         long total = (long) colors;
