@@ -2,7 +2,7 @@ package lv_427.logic.agarkov_oleksandr;
 
 import java.util.Scanner;
 
-import lv_427.logic.AlgorithmExecutor;
+import lv_427.logic.TaskExecutor;
 
 /**
  * Class for finding the number of ways of painting the fence
@@ -11,7 +11,7 @@ import lv_427.logic.AlgorithmExecutor;
  * @version 1.0
  */
 
-public class OptimizedPaintingFence implements AlgorithmExecutor {
+public class OptimizedPaintingFence implements TaskExecutor {
     /**
      * Scanner for reading from console.
      */

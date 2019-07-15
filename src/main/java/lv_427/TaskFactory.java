@@ -1,15 +1,20 @@
 package lv_427;
 
 import lv_427.logic.TaskExecutor;
+import lv_427.logic.kateryna_horokh.FriendPairs;
 import lv_427.logic.kateryna_horokh.PalindromicSubsequence;
 import lv_427.logic.marian_milian.IntrestingRow;
 import lv_427.logic.marian_milian.ModificationFibonacci;
 import lv_427.logic.nazar_stasyuk.Fibonacci;
 import lv_427.logic.nazar_stasyuk.MergeSort;
+import lv_427.logic.nazar_vladyka.LongestSubsequentTask;
+import lv_427.logic.nazar_vladyka.PathsWithoutCrossingTask;
 import lv_427.logic.roman_zahorui.PaintingFence;
 import lv_427.logic.roman_zahorui.WaysTileFloor;
 import lv_427.logic.rostyslav_khasanov.CountOfWaysToSumToN;
 import lv_427.logic.rostyslav_khasanov.NumAsSumOfTwoOrMorePosInt;
+import lv_427.logic.zakhar_skaletskyi.WaysToCoverIn3steps;
+import lv_427.logic.agarkov_oleksandr.*;
 
 public class TaskFactory {
 
@@ -55,6 +60,7 @@ public class TaskFactory {
         taskExecutor = new IntrestingRow();
         break;
       case 4:
+        taskExecutor = new LongestSubsequentTask();
         break;
       case 5:
         taskExecutor = new CountOfWaysToSumToN();
@@ -63,15 +69,19 @@ public class TaskFactory {
         taskExecutor = new NumAsSumOfTwoOrMorePosInt();
         break;
       case 7:
+        taskExecutor = new WaysToCoverIn3steps();
         break;
       case 8:
+        taskExecutor = new PathsWithoutCrossingTask();
         break;
       case 9:
+        taskExecutor = new HighEffortLowEffort();
         break;
       case 10:
         taskExecutor = new PalindromicSubsequence();
         break;
       case 11:
+        taskExecutor = new FriendPairs();
         break;
       case 12:
         taskExecutor = new WaysTileFloor();
@@ -80,6 +90,7 @@ public class TaskFactory {
         taskExecutor = new PaintingFence();
         break;
       case 14:
+        taskExecutor = new OptimizedPaintingFence();
         break;
       case 15:
         break;

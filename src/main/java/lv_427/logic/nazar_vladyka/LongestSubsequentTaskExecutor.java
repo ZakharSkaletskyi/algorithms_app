@@ -1,47 +1,16 @@
 package lv_427.logic.nazar_vladyka;
 
-import lv_427.logic.TaskExecutor;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 /**
- * Longest subsequence with difference one.
- *
- * <p>The goal: To find how many numbers we have with difference one in the maximum sub sequence
+ * Additional class for LongestSubsequentTask.class
  *
  * @author Nazar Vladyka
  * @version 1.0
  */
-public class LongestSubsequent implements TaskExecutor {
-  private Scanner sc;
-
-  private static final String INPUT_MESSAGE = "Please send me the numbers: ";
-  private static final String OUTPUT_MESSAGE = "Result: ";
-
-  public LongestSubsequent() {
-    this.sc = new Scanner(System.in);
-  }
-
-  /** The method which doing job us a controller(validate input data and send data to execution). */
-  public void execute() {
-    String input;
-
-    do {
-      System.out.print(INPUT_MESSAGE);
-      input = sc.nextLine();
-    } while (!isInputDataValid(input));
-
-    String[] inputArray = input.split(" ");
-    List<Integer> numbers = new ArrayList<Integer>();
-
-    for (String s : inputArray) {
-      numbers.add(Integer.parseInt(s));
-    }
-
-    System.out.print(OUTPUT_MESSAGE + find(numbers));
-  }
+public class LongestSubsequentTaskExecutor {
+  private static final int DIFFERENCE = 1;
 
   /**
    * The method check if incoming data is valid.
@@ -60,7 +29,10 @@ public class LongestSubsequent implements TaskExecutor {
           Integer.parseInt(s);
         } catch (NumberFormatException e) {
           System.err.println(
-              "Hmm.. Looks like your number - " + "\"" + s + "\""
+              "Hmm.. Looks like your number - "
+                  + "\""
+                  + s
+                  + "\""
                   + " is not a number , or try smaller numbers");
           return false;
         }
@@ -74,15 +46,22 @@ public class LongestSubsequent implements TaskExecutor {
    * The method of main algorithm which calculate the longest subsequent of numbers with difference
    * 1.
    *
-   * @param numbers - input List of int with numbers.
+   * @param input - input String of numbers.
    * @return int result of longest subsequent.
    */
-  public int find(List<Integer> numbers) {
+  public int find(String input) {
     int maxSubsequent = 0;
     int currentSubsequent = 1;
 
+    String[] inputArray = input.split(" ");
+    List<Integer> numbers = new ArrayList<Integer>();
+
+    for (String s : inputArray) {
+      numbers.add(Integer.parseInt(s));
+    }
+
     for (int i = 0; i < numbers.size() - 1; i++) {
-      if ((numbers.get(i + 1) - numbers.get(i)) == 1) {
+      if (Math.abs((numbers.get(i + 1) - numbers.get(i))) == DIFFERENCE) {
         currentSubsequent++;
       } else {
         maxSubsequent = (currentSubsequent > maxSubsequent) ? currentSubsequent : maxSubsequent;
@@ -93,9 +72,5 @@ public class LongestSubsequent implements TaskExecutor {
     maxSubsequent = (currentSubsequent > maxSubsequent) ? currentSubsequent : maxSubsequent;
 
     return maxSubsequent;
-  }
-
-  public static void main(String[] args) {
-    new LongestSubsequent().execute();
   }
 }
