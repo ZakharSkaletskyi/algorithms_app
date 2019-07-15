@@ -11,35 +11,24 @@ public class PathsWithoutCrossingTaskExecutor {
    * The method check if incoming data is valid.
    *
    * @param input - input string data.
-   * @return boolean value which shows us if data is valid.
+   * @return boolean value which shows us if data is valid else throw an NumberFormatException
    */
   public boolean isInputDataValid(String input) {
     int number;
 
-    try {
-      number = Integer.parseInt(input);
-    } catch (NumberFormatException e) {
-      System.err.println(
-          "Hmm.. Looks like your number - " + "\"" + input + "\"" + " is not a number");
-      return false;
-    }
+    number = Integer.parseInt(input);
 
     if (number <= 0) {
-      System.err.println(
-          "Hmm.. Looks like your number - " + "\"" + number + "\"" + " is smaller than 0");
-      return false;
+      throw new NumberFormatException("Number is smaller than 1");
     } else if (number > 52) {
-      System.err.println(
-          "Hmm.. Looks like your number - " + "\"" + number + "\"" + " is bigger than 52");
-      return false;
+      throw new NumberFormatException("Number is bigger than 52");
     }
 
-    if (((number % 2) == 0)) {
-      return true;
-    } else {
-      System.err.println("Number has to be odd");
-      return false;
+    if ((number % 2) == 1) {
+      throw new NumberFormatException("Number has to be even");
     }
+
+    return true;
   }
 
   /**

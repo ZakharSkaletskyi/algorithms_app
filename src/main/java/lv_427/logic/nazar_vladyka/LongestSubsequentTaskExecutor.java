@@ -22,20 +22,10 @@ public class LongestSubsequentTaskExecutor {
     String[] inputStringArray = input.split(" ");
 
     if (inputStringArray.length == 0) {
-      return false;
+      throw new NumberFormatException("The input is empty");
     } else {
       for (String s : inputStringArray) {
-        try {
-          Integer.parseInt(s);
-        } catch (NumberFormatException e) {
-          System.err.println(
-              "Hmm.. Looks like your number - "
-                  + "\""
-                  + s
-                  + "\""
-                  + " is not a number , or try smaller numbers");
-          return false;
-        }
+        Integer.parseInt(s);
       }
     }
 

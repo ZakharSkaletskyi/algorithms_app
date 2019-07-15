@@ -25,11 +25,21 @@ public class PathsWithoutCrossingTask implements TaskExecutor {
   /** The method which doing job us a controller(validate input data and send data to execution). */
   public void execute() {
     String input;
+    boolean isInputValid;
 
     do {
-      System.out.print("Please send me the odd number(bigger that 0 and less than 52): ");
+      isInputValid = true;
+
+      System.out.print("Please send me the even number(bigger that 0 and less than 52): ");
       input = sc.nextLine();
-    } while (!executor.isInputDataValid(input));
+
+      try {
+        executor.isInputDataValid(input);
+      } catch (NumberFormatException e) {
+        System.err.println("NumberFormatException " + e.getMessage());
+        isInputValid = false;
+      }
+    } while (!isInputValid);
 
     System.out.println("Result: " + executor.countWays(Integer.parseInt(input)));
   }
