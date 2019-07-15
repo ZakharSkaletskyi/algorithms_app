@@ -37,9 +37,14 @@ public class WaysTileFloor implements TaskExecutor {
     int[] floorSize = null;
     while (null == floorSize) {
       try {
-        floorSize = StringParser.parseStringToSize(sc.nextLine(), WIDTH_MIN_VAL, HEIGHT_MIN_VAL);
+        floorSize = StringParser.parseStringToSize(sc.nextLine());
         if (null == floorSize) {
           System.out.println(FAIL_MESSAGE);
+        } else {
+          if (floorSize[0] < WIDTH_MIN_VAL || floorSize[1] < HEIGHT_MIN_VAL) {
+            System.out.println(FAIL_MESSAGE);
+            floorSize = null;
+          }
         }
       } catch (NumberFormatException e) {
         System.out.println(FAIL_MESSAGE);
