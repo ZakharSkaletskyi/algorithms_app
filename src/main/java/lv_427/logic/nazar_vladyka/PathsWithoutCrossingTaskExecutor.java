@@ -1,41 +1,12 @@
 package lv_427.logic.nazar_vladyka;
 
-import java.util.Scanner;
-import lv_427.logic.TaskExecutor;
-
 /**
- * LPaths without crossing.
- *
- * <p>The goal: Program to count number of ways to connect n (where n is even) points on a circle
- * such that no two connecting lines cross each other and every point is connected with one other
- * point.
+ * Additional class for PathsWithoutCrossingTask.class
  *
  * @author Nazar Vladyka
  * @version 1.0
  */
-public class PathsWithoutCrossing implements TaskExecutor {
-  private Scanner sc;
-
-  private static final String INPUT_MESSAGE =
-      "Please send me the odd number(bigger that 0 and less than 52): ";
-  private static final String OUTPUT_MESSAGE = "Result: ";
-
-  public PathsWithoutCrossing() {
-    this.sc = new Scanner(System.in);
-  }
-
-  /** The method which doing job us a controller(validate input data and send data to execution). */
-  public void execute() {
-    String input;
-
-    do {
-      System.out.print(INPUT_MESSAGE);
-      input = sc.nextLine();
-    } while (!isInputDataValid(input));
-
-    System.out.print(OUTPUT_MESSAGE + countWays(Integer.parseInt(input)));
-  }
-
+public class PathsWithoutCrossingTaskExecutor {
   /**
    * The method check if incoming data is valid.
    *
@@ -55,11 +26,11 @@ public class PathsWithoutCrossing implements TaskExecutor {
 
     if (number <= 0) {
       System.err.println(
-              "Hmm.. Looks like your number - " + "\"" + number + "\"" + " is smaller than 0");
+          "Hmm.. Looks like your number - " + "\"" + number + "\"" + " is smaller than 0");
       return false;
     } else if (number > 52) {
       System.err.println(
-              "Hmm.. Looks like your number - " + "\"" + number + "\"" + " is bigger than 52");
+          "Hmm.. Looks like your number - " + "\"" + number + "\"" + " is bigger than 52");
       return false;
     }
 
