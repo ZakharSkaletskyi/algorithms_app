@@ -25,20 +25,20 @@ public class FibonacciTest {
     }
 
     /**
-     * Method: findNumberByPosition(int position) has to a number 1
+     * Method: findNumberByPosition(int position) has to a number 3
      */
     @Test
     public void findNumberByPositionTest() {
-        long invoke = Deencapsulation.invoke(fibonacci, "findNumberByPosition", 100);
-        assertEquals(invoke, 1);
+        long invoke = Deencapsulation.invoke(fibonacci, "findNumberByPosition", 3);
+        assertEquals(invoke, 2);
     }
 
     /**
-     * Method: findNumberByPosition(int position) has to return 0
+     * Method: findNumberByPosition(int position) has to return 1
      */
     @Test
     public void findNumberByPositionTestWithBadInput() {
-        long invoke = Deencapsulation.invoke(modificationFibonacci, "findNumberByPosition", -100);
-        assertEquals(invoke, 0);
+        long invoke = Deencapsulation.invoke(modificationFibonacci, "findNumberByPosition", 1);
+        assertEquals(invoke, 1);
     }
 }
