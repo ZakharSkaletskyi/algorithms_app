@@ -15,21 +15,30 @@ import static org.junit.Assert.*;
 public class FibonacciTest {
 
     private Fibonacci fibonacci;
-    /** Init method. */
+
+    /**
+     * Init method.
+     */
     @Before
     public void init() {
         fibonacci = new Fibonacci();
     }
-    /** Method: findNumberByPosition(int position) has to a number 1 */
+
+    /**
+     * Method: findNumberByPosition(int position) has to a number 1
+     */
     @Test
     public void findNumberByPositionTest() {
         long invoke = Deencapsulation.invoke(fibonacci, "findNumberByPosition", 100);
-        assertEquals(invoke,1);
+        assertEquals(invoke, 1);
     }
-    /** Method: findNumberByPosition(int position) has to return 0 */
+
+    /**
+     * Method: findNumberByPosition(int position) has to return 0
+     */
     @Test
     public void findNumberByPositionTestWithBadInput() {
         long invoke = Deencapsulation.invoke(modificationFibonacci, "findNumberByPosition", -100);
-        assertEqquals(invoke,0);
+        assertEqquals(invoke, 0);
     }
 }
