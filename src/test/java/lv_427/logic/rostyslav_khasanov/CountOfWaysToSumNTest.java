@@ -31,7 +31,7 @@ public class CountOfWaysToSumNTest {
 
   /**
    * Method: countWays(int[] arr, int n) should generate ArrayIndexOutOfBoundsException in case
-   * where int[] arr argument contain some negative values.
+   * where int[] arr argument contains some negative values.
    */
   @Test(expected = ArrayIndexOutOfBoundsException.class)
   public void countWaysNegativeValInArray() {
