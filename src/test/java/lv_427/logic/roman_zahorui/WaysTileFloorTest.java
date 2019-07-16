@@ -7,6 +7,12 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ * Class is for testing WaysTileFloor class.
+ *
+ * @author Nazar Vladyka
+ * @version 1.0
+ */
 public class WaysTileFloorTest {
   @Tested private WaysTileFloor waysTileFloor;
 
@@ -25,5 +31,11 @@ public class WaysTileFloorTest {
   public void passingBigNumbers() {
     int ways = Deencapsulation.invoke(waysTileFloor, "getWaysToTile", 500, 400);
     assertEquals(102, ways);
+  }
+
+  @Test
+  public void passingBigNumbers2() {
+    int ways = Deencapsulation.invoke(waysTileFloor, "getWaysToTile", 100000000, 2);
+    assertEquals(2147483647, ways);
   }
 }
