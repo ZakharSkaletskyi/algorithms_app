@@ -26,4 +26,10 @@ public class WaysTileFloorTest {
     int ways = Deencapsulation.invoke(waysTileFloor, "getWaysToTile", 500, 400);
     assertEquals(102, ways);
   }
+
+  @Test
+  public void passingBigNumbers2() {
+    int ways = Deencapsulation.invoke(waysTileFloor, "getWaysToTile", 100000000, 2);
+    assertEquals(2147483647, ways);
+  }
 }
