@@ -3,85 +3,31 @@ package lv_427.logic.zakhar_skaletskyi;
 import java.util.Scanner;
 
 import lv_427.logic.TaskExecutor;
-
-public class WaysToCoverIn3steps implements TaskExecutor {
-	private long totalCountOfWays;
-	private int distance;
+public class WaysToCoverIn3steps implements TaskExecutor{
 	private Scanner sc;
+	private int findStep(int n)
+    {
+        if (n == 1 || n == 0)
+            return 1;
+        else if (n == 2)
+            return 2;
 
+        else
+            return findStep(n - 3) +
+                   findStep(n - 2) +
+                   findStep(n - 1);
+    }
 	public WaysToCoverIn3steps() {
 		sc = new Scanner(System.in);
 	}
-
 	public void execute() {
-		totalCountOfWays = 1; // all distance we cover by 1 step
-		distance = getDistance(sc);
-		totalCountOfWays += findWays(distance, 3, 0, 0, 0, 0);
-		System.out.println("Total number of ways to cover the distance = " + totalCountOfWays);
+		int distance = getDistance(sc);
+		System.out.println("Total number of ways to cover the distance = " + findStep(distance));
 		System.out.println("To return to menu just press Enter");
 		sc.nextLine();
 	}
 
-	private long findWays(int distance, int stepDistance, int passedSteps, int step1, int step2, int step3) {
-		long totalCountOfWays = 0;
-		if (stepDistance == 3) {	//start calculate for 3 steps and than for less steps
-			totalCountOfWays += getTwoStepsCount(distance, 2, passedSteps, step1, step2, step3);
-			totalCountOfWays += getThreeStepsCount(distance, 3, passedSteps, step1, step2, step3);
-		}
-		if (stepDistance == 2) {
-			totalCountOfWays += getOneStepsCount(distance, 2, passedSteps, step1, step2, step3);
-			totalCountOfWays += getTwoStepsCount(distance, 2, passedSteps, step1, step2, step3);
-			return totalCountOfWays;
-		}
-		if (stepDistance == 1) {
-			totalCountOfWays += getOneStepsCount(distance, 2, passedSteps, step1, step2, step3);
-			return totalCountOfWays;
-		}
-		return totalCountOfWays;
-	}
-
-	public long countWays(int passedSteps, int step1, int step2, int step3) {
-		long factorial = getFactorial(passedSteps) / getFactorial(step1) / getFactorial(step2) / getFactorial(step3);
-		return factorial;
-	}
-
-	public long getOneStepsCount(int distance, int stepDistance, int passedSteps, int step1, int step2, int step3) {
-		long twoStepsCount = 0;
-		step1 += distance;
-		passedSteps += distance;
-		twoStepsCount += countWays(passedSteps, step1, step2, step3);
-		return twoStepsCount;
-	}
-
-	public long getTwoStepsCount(int distance, int stepDistance, int passedSteps, int step1, int step2, int step3) {
-		long twoStepsCount = 0;
-		for (int coveredDistanceWith2Steps = 2; coveredDistanceWith2Steps <= distance; coveredDistanceWith2Steps += 2) {
-			passedSteps++;
-			step2++;
-			twoStepsCount += findWays(distance - coveredDistanceWith2Steps, 1, passedSteps, step1, step2, step3);
-		}
-		return twoStepsCount;
-	}
-
-	public long getThreeStepsCount(int distance, int stepDistance, int passedSteps, int step1, int step2, int step3) {
-		long threeStepsCount = 0;
-		for (int coveredDistanceWith3Steps = 3; coveredDistanceWith3Steps <= distance; coveredDistanceWith3Steps += 3) {
-			passedSteps++;
-			step3++;
-			threeStepsCount += findWays(distance - coveredDistanceWith3Steps, 2, passedSteps, step1, step2, step3);
-		}
-		return threeStepsCount;
-	}
-
-	public static long getFactorial(int n) {
-		long r = 1;
-		for (int i = 1; i <= n; i++) {
-			r *= i;
-		}
-		return r;
-	}
-
-	public int getDistance(Scanner sc) {
+	private int getDistance(Scanner sc) {
 		boolean check = true;
 		int distance = 0;
 		System.out.println("Please enter a distance less than 30");

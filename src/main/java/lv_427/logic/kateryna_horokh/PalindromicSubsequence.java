@@ -6,7 +6,6 @@ import java.util.logging.Logger;
 
 import lv_427.logic.TaskExecutor;
 
-
 /**
  * Class for finding the longest palindromic subsequence.
  *
@@ -28,11 +27,13 @@ public class PalindromicSubsequence implements TaskExecutor {
     String input;
 
     do {
-      System.out.print("Please enter word: ");
+      System.out.print("Please send me the word for finding the longest palindromic subsequence: ");
       input = sc.nextLine();
     } while (!isInputValid(input));
 
     System.out.println("Result: " + findPalindromLength(input));
+    System.out.println("To return to menu just press - Enter");
+    sc.nextLine();
   }
 
   /**
@@ -41,7 +42,7 @@ public class PalindromicSubsequence implements TaskExecutor {
    * @param input - incoming string
    * @return boolean true or false. If it returns true string is valid.
    */
-  public boolean isInputValid(String input) {
+  private boolean isInputValid(String input) {
     char[] chars = input.toCharArray();
 
     if (chars.length == 0) {
@@ -65,17 +66,15 @@ public class PalindromicSubsequence implements TaskExecutor {
    *
    * @param input - a string which have to check how many symbols has the biggest palindrome which
    *     is included.
-   * @return number of length the biggest palindrome.
+   * @return number of the biggest length of palindrome.
    */
-  public int findPalindromLength(String input) {
+  private int findPalindromLength(String input) {
 
     char[] chars = input.toCharArray();
 
     int[][] LP = new int[chars.length][chars.length];
 
     // LP[i][j] - length of palindrome from i index to j index
-    // all the characters in the string are palindrome by itself of length 1.
-    // So all LP[i][i] =  1
     for (int i = 0; i < chars.length; i++) {
       LP[i][i] = 1;
     }
