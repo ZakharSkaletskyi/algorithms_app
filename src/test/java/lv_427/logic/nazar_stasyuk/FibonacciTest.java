@@ -39,6 +39,6 @@ public class FibonacciTest {
     @Test
     public void findNumberByPositionTestWithBadInput() {
         long invoke = Deencapsulation.invoke(modificationFibonacci, "findNumberByPosition", -100);
-        assertEqquals(invoke, 0);
+        assertEquals(invoke, 0);
     }
 }
