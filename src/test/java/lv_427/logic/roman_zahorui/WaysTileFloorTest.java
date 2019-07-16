@@ -7,6 +7,12 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ * Class is for testing WaysTileFloor class.
+ *
+ * @author Nazar Vladyka
+ * @version 1.0
+ */
 public class WaysTileFloorTest {
   @Tested private WaysTileFloor waysTileFloor;
 
