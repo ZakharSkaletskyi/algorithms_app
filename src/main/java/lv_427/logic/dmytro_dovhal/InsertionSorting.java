@@ -62,7 +62,9 @@ public class InsertionSorting implements TaskExecutor {
   }
 
   private int[] insertionSorting(int array[]) {
-
+    if(array.length < 2){
+      return null;
+    }
     int n = array.length;
     for (int i = 1; i < n; ++i) {
       int key = array[i];
