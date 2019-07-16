@@ -53,7 +53,12 @@ public class LongestSubsequent implements TaskExecutor {
     String[] inputStringArray = input.split(" ");
 
     for (String s : inputStringArray) {
-      Integer.parseInt(s);
+      try {
+        Integer.parseInt(s);
+      } catch (NumberFormatException e) {
+        throw new NumberFormatException(
+            "Looks like your input - " + s + ", is not a number. Try again");
+      }
     }
   }
 

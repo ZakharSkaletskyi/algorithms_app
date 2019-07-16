@@ -1,5 +1,6 @@
 package lv_427.logic.rostyslav_khasanov;
 
+import lv_427.exceptions.IncorrectValueException;
 import lv_427.logic.TaskExecutor;
 
 import java.util.Scanner;
@@ -16,7 +17,6 @@ public class CountOfWaysToSumToN implements TaskExecutor {
 
   /** Executable method. */
   public void execute() {
-    boolean check = true;
     Scanner sc = new Scanner(System.in);
     String str;
     int number = 0;
@@ -25,7 +25,7 @@ public class CountOfWaysToSumToN implements TaskExecutor {
     /** Array with integers, which consist elements of strArr after parse */
     int numbers[];
 
-    System.out.println("Enter array of numbers like '1 5 2 12 1': \n");
+    System.out.println("Enter array of positive numbers like '1 5 2 12 1': ");
     for (; ; ) {
       str = sc.nextLine();
       strArr = str.split(" ");
@@ -33,26 +33,29 @@ public class CountOfWaysToSumToN implements TaskExecutor {
       try {
         for (int i = 0; i < strArr.length; i++) {
           numbers[i] = Integer.parseInt(strArr[i]);
+          if (numbers[i] < 0) {
+            throw new IncorrectValueException("Just positive numbers!");
+          }
         }
-        check = false;
-      } catch (Exception e) {
-        System.out.println("Only numbers is array like '1 22 4 3' !");
-      }
-      if (check == false) {
         break;
+      } catch (NumberFormatException e) {
+        System.out.println("Only positive numbers in array like '1 22 4 3' !");
+      } catch (IncorrectValueException e) {
+        System.out.println(e.getMessage());
       }
     }
-    check = true;
     System.out.println("Enter positive number :");
     for (; ; ) {
       try {
         number = Integer.parseInt(sc.nextLine());
-        check = false;
-      } catch (Exception e) {
-        System.out.println("Enter just one positive number!");
-      }
-      if (check == false) {
+        if (number < 0) {
+          throw new IncorrectValueException("Just positive numbers!");
+        }
         break;
+      } catch (NumberFormatException e) {
+        System.out.println("Enter just one positive number!");
+      } catch (IncorrectValueException e) {
+        System.out.println(e.getMessage());
       }
     }
 
