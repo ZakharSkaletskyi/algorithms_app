@@ -18,6 +18,7 @@ public class WaysTileFloor implements TaskExecutor {
   private static final int HEIGHT_MIN_VAL = 2;
   private static final String FAIL_MESSAGE = "Try again!";
   private static final String OUTPUT_MESSAGE = "Output : ";
+  private static final String OUTPUT_MSG_MORE = " or even more!";
   private static final String TERMS_OF_USE =
       "Enter a size of a floor as n x m."
           + "\nBoth n and m must be positive integers, where n >= 1 and m >= 2. "
@@ -58,6 +59,9 @@ public class WaysTileFloor implements TaskExecutor {
     int amountOfWays = getWaysToTile(width, height);
 
     String outputStr = OUTPUT_MESSAGE + amountOfWays;
+    if (amountOfWays == Integer.MAX_VALUE) {
+      outputStr += OUTPUT_MSG_MORE;
+    }
     System.out.println(outputStr);
   }
 
@@ -83,7 +87,12 @@ public class WaysTileFloor implements TaskExecutor {
       } else if (i == m) {
         count[i] = HEIGHT_MIN_VAL;
       } else {
-        count[i] = count[i - 1] + count[i - m];
+        long current = (long)count[i - 1] + (long)count[i - m];
+        if (current >= Integer.MAX_VALUE) {
+          return Integer.MAX_VALUE;
+        } else {
+          count[i] = (int) current;
+        }
       }
     }
     return count[n];
