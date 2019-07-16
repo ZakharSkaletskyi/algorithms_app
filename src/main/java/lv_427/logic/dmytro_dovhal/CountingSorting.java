@@ -63,6 +63,9 @@ public class CountingSorting implements TaskExecutor {
   }
 
   private int[] countingSorting(int[] arr) {
+    if (arr.length < 2){
+      return null;
+    }
     int max = Arrays.stream(arr).max().getAsInt();
     int min = Arrays.stream(arr).min().getAsInt();
     int range = max - min + 1;
