@@ -1,0 +1,13 @@
+language: java
+dist: trusty
+addons:
+  sonarcloud:
+    organization: "zakharskaletskyi"
+    token:
+      secure: "9f00f8fcb16cc950633536d42717f81fca1c1781" # encrypted value of your token
+
+jdk:
+    - oraclejdk8
+script:
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=ZakharSkaletskyi_algorithms_app
