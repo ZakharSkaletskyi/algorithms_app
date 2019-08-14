@@ -1,5 +1,7 @@
 language: java
 dist: trusty
+sudo: true
+install: true
 addons:
   sonarcloud:
     organization: "zakharskaletskyi"
